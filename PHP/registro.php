@@ -72,23 +72,23 @@ a {
 <form action="insert_usuario.php">
   <div class="container">
     <h1>Registro</h1>
-    <p>Hola buenas</p>
+    <p>Introduce los datos</p>
     <hr>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    <label for="uname"><b>Nombre Usuario</b></label>
+    <input type="text" placeholder="Introduce un nombre de usuario" name="uname" id="uname" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+    <label for="psw"><b>Contraseña</b></label>
+    <input type="password" placeholder="Introduce una contraseña" name="psw" id="psw" required>
 
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+    <label for="psw-repeat"><b>Repetir Contraseña</b></label>
+    <input type="password" placeholder="Repite la contraseña" name="psw-repeat" id="psw-repeat" required>
 
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn">Registrarse</button>
   </div>
   
   <div class="container signin">
-    <p>Ya tienes cuenta? <a href="index.html">Inicia Sesión</a></p>
+    <p>Ya tienes cuenta? <a href="../index.html">Inicia Sesión</a></p>
   </div>
 </form>
 
