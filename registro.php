@@ -5,7 +5,7 @@
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
+  background-color: white;
 }
 
 * {
@@ -71,8 +71,8 @@ a {
 
 <form action="insert_usuario.php">
   <div class="container">
-    <h1>Register</h1>
-    <p>Por</p>
+    <h1>Registro</h1>
+    <p>Hola buenas</p>
     <hr>
 
     <label for="email"><b>Email</b></label>
@@ -88,7 +88,7 @@ a {
   </div>
   
   <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
+    <p>Ya tienes cuenta? <a href="index.html">Inicia Sesión</a></p>
   </div>
 </form>
 

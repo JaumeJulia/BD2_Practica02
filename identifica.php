@@ -1,10 +1,15 @@
-<?php session_start();
+<?php 
+
+session_start();
 
 while (!isset($_SESSION)) {
     
     echo "session no iniciada";
+
     // Recollida de paràmetres
+
     $user= $_POST['uname'];
+
     $pass= $_POST['psw'];
       
 }
@@ -24,15 +29,20 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_row($result);
 
     if($row[0]==1){
+
         echo("Eres ADMIN");
+
     }else{
+
         echo("Eres no ADMIN");
-        
     }
   
 }else{
+
     include "index.html";
+
     echo('<span style="color: red;" /><center> Usuario o contraseña incorrectos </center></span>');
+
 }
 
 mysqli_close($con);
