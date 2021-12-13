@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) > 0){
 
     if($row[0]==1){
 
-        include "admin.html";
+        include "../admin.html";
 
     }else{
 
