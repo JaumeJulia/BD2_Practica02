@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) > 0){
 
     if($row[0]==1){
 
-        echo("Eres ADMIN");
+        include "admin.html";
 
     }else{
 
