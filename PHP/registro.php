@@ -69,7 +69,7 @@ a {
 </head>
 <body>
 
-<form action="insert_usuario.php">
+<form action="insertar_usuario.php" method="post">
   <div class="container">
     <h1>Registro</h1>
     <p>Introduce los datos</p>
@@ -78,11 +78,17 @@ a {
     <label for="uname"><b>Nombre Usuario</b></label>
     <input type="text" placeholder="Introduce un nombre de usuario" name="uname" id="uname" required>
 
+    <label for="name"><b>Nombre</b></label>
+    <input type="text" placeholder="Introduce tu nombre" name="name" id="name" required>
+
     <label for="psw"><b>Contraseña</b></label>
     <input type="password" placeholder="Introduce una contraseña" name="psw" id="psw" required>
 
     <label for="psw-repeat"><b>Repetir Contraseña</b></label>
     <input type="password" placeholder="Repite la contraseña" name="psw-repeat" id="psw-repeat" required>
+
+    <label for="number"><b>Edad</b></label>
+    <input type="number" placeholder="Introduce tu edad" name="number" id="number" required>
 
     <button type="submit" class="registerbtn">Registrarse</button>
   </div>
