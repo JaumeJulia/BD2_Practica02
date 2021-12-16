@@ -78,7 +78,7 @@ a {
     <label for="uname"><b>Nombre Usuario</b></label>
     <input type="text" placeholder="Introduce un nombre de usuario" name="uname" id="uname" required>
 
-    <label for="name"><b>Nombre</b></label>
+    <label for="name"><b>Nombre y Apellidos</b></label>
     <input type="text" placeholder="Introduce tu nombre" name="name" id="name" required>
 
     <label for="psw"><b>Contraseña</b></label>
@@ -94,7 +94,7 @@ a {
   </div>
   
   <div class="container signin">
-    <p>Ya tienes cuenta? <a href="../index.html">Inicia Sesión</a></p>
+    <p>¿Ya tienes cuenta? <a href="../index.html">Inicia Sesión</a></p>
   </div>
 </form>
 
