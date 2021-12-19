@@ -28,13 +28,8 @@
             <td><b><p style="color:black">Titol</p></b></td> 
             <td><b><p style="color:black">Categoria</p></b></td> 
             <td><b><p style="color:black">Video</p></b></td> 
-                <?php
-                    //haremos la referencia al parametro que queremos visualizar
-                    //Ej: <td>nombre </td> 
-                ?>
         </tr>
-        <?php 
-        //como mirar la fecha actual
+        <?php
         include "../PHP/conexion.php";
         $user= $_GET['uname'];
         $sql_edad="SELECT usuari.tipusUsuari FROM usuari WHERE usuari.nomUsuari='".$user."'";
