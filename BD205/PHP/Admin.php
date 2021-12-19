@@ -39,7 +39,7 @@
 <center><img src="../Images/Notflix.PNG" width="300"></center>
 <br>
 <table align="center">
-    <tr><td><a class="button button1" href="Usuario.php">Añadir Usuario</a></td></tr>
+    <tr><td><a class="button button1" href="../BD243202285M/InsercionUsuario.php">Añadir Usuario</a></td></tr>
     <tr><td><a class="button button2" href="Usuario.php">Añadir Contenido</a></td></tr>
     <tr><td><a class="button button1" href="Usuario.php">Modificar Tabla Usuarios</a></td></tr>
     <tr><td><a class="button button2" href="Usuario.php">Modificar Tabla Contenidos</a></td></tr>
