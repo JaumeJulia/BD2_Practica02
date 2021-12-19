@@ -9,7 +9,7 @@
     <title>Facturas</title>
 <style>
     table, th, td {
-        border: 1px solid black;
+        border: 2px solid pink;
         background-color: #68b9da;
         
     }
@@ -22,16 +22,16 @@
 
 <head>
 <body>
-<center><a href="identifica.php"><img src="../Images/Notflix.PNG" width="300"></a></center>
+<center><a href="Usuario.php"><img src="../Images/Notflix.PNG" width="300"></a></center>
 <center><H3>Tabla de facturas</H3></center>
 <br>
 <br>
     <table class="center">
         <tr>
-            <td><b>idFactura</b></td> 
-            <td><b>idContracte</b></td> 
-            <td><b>Data</b></td> 
-            <td><b>Import</b></td> 
+            <td><b><p style="color:black">idFactura</p></b></td> 
+            <td><b><p style="color:black">idContracte</p></b></td> 
+            <td><b><p style="color:black">Data</p></b></td> 
+            <td><b><p style="color:black">Import</p></b></td> 
                 <?php
                     //haremos la referencia al parametro que queremos visualizar
                     //Ej: <td>nombre </td> 

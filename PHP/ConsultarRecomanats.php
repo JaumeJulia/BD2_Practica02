@@ -4,7 +4,7 @@
     <title>Recomendaciones</title>
     <style>
     table, th, td {
-        border: 1px solid black;
+        border: 2px solid pink;
         background-color: #68b9da;
         
     }
@@ -16,15 +16,15 @@
     </style>
 <head>
 <body>
-<center><a href="identifica.php"><img src="../Images/Notflix.PNG" width="300"></a></center>
+<center><a href="Usuario.php"><img src="../Images/Notflix.PNG" width="300"></a></center>
 <center><H3>Nuevos Contenidos Recomendados</H3></center>
 <br>
     <table class="center">
         <tr>
-            <td><b>idContenido</b></td> 
-            <td><b>titol</b></td> 
-            <td><b>categoria</b></td> 
-            <td><b>video</b></td> 
+            <td><b><p style="color:black">idContingut</p></b></td> 
+            <td><b><p style="color:black">Titol</p></b></td> 
+            <td><b><p style="color:black">Categoria</p></b></td> 
+            <td><b><p style="color:black">Video</p></b></td> 
                 <?php
                     //haremos la referencia al parametro que queremos visualizar
                     //Ej: <td>nombre </td> 
