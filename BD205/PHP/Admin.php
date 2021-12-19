@@ -56,7 +56,7 @@
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Añadir Contenido</button></center>
     </form>
 
-    <form action="../BD243202285M/InsercionContenido.php" method="post">
+    <form action="../BD243202285M/VisualizacionUsuarios.php" method="post">
     <div class="container">
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Tabla Usuarios</button></center>
     </form>
