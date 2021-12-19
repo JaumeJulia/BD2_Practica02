@@ -46,9 +46,9 @@ if(!array_key_exists('uname', $_POST)){
 }else{
   $usuario = $_POST['uname'];
 }
-$consulta_recomendados = '<a href="ConsultarRecomanats.php?uname='.$usuario.'" class="button button1"style="font-size:20px" >Consultar Recomendados</a>';
-$visualizar_facturas = '<a href="Visualizartabla.php?uname='.$usuario.'" class="button button2"style="font-size:20px" >Visualizar Facturas</a>';
-$consultar_contenidos = '<a href="ConsultarContenido.php?uname='.$usuario.'" class="button button3"style="font-size:20px" >Ver Contenidos</a>';
+$consulta_recomendados = '<a href="../BD243220819R/ConsultarRecomanats.php?uname='.$usuario.'" class="button button1"style="font-size:20px" >Consultar Recomendados</a>';
+$visualizar_facturas = '<a href="../BD243220819R/Visualizartabla.php?uname='.$usuario.'" class="button button2"style="font-size:20px" >Visualizar Facturas</a>';
+$consultar_contenidos = '<a href="../BD243466710E/ConsultarContenido.php?uname='.$usuario.'" class="button button3"style="font-size:20px" >Ver Contenidos</a>';
 echo "<table align='center'>";
     echo "<tr><td>".$consulta_recomendados. "</td></tr>";
     echo "<tr><td>".$visualizar_facturas."</td></tr>";
