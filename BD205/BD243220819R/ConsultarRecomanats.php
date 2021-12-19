@@ -17,54 +17,96 @@
 <head>
 <body>
     <?php $user= $_GET['uname'];
-    echo '<center><a href="Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     ?>
-    <center><H3>Nuevos Contenidos Recomendados</H3></center>
+    <center><H3>Contenidos Disponible</H3></center>
     <br>
-    
-    <table class="center">
+
+    <table class = "center" >
         <tr>
-            <td><b><p style="color:black">idContingut</p></b></td> 
             <td><b><p style="color:black">Titol</p></b></td> 
             <td><b><p style="color:black">Categoria</p></b></td> 
-            <td><b><p style="color:black">Video</p></b></td> 
-                <?php
-                    //haremos la referencia al parametro que queremos visualizar
-                    //Ej: <td>nombre </td> 
-                ?>
+            <td><b><p style="color:black">Video</p></b></td>                
         </tr>
         <?php 
         //como mirar la fecha actual
-        include "conexion.php";
+        include "../PHP/conexion.php";
         $user= $_GET['uname'];
+        $sql_edad = "SELECT usuari.tipusUsuari FROM usuari WHERE usuari.nomUsuari='".$user."'";
+        $edad=mysqli_query($con,$sql_edad);
+        $edad=mysqli_fetch_array($edad);
         $date = date('y-m-d');
-        $sql="SELECT contingut.idContingut, contingut.titol, contingut.categoria, contingut.video from Usuari INNER JOIN(
-            contracte INNER JOIN (
-                catfav INNER JOIN( 
-                    categoria INNER JOIN(
-                        contingut INNER JOIN
-                            recomanat ON contingut.idContingut = recomanat.idContingut) 
-                            ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<7)
-                            ON catfav.categoria = categoria.categoria)
-                            ON contracte.idContracte = catfav.idContracte)
-                            ON usuari.nomUsuari = contracte.nomUsuari WHERE 
-                            usuari.tipusUsuari = recomanat.tipusUsuari AND usuari.nomUsuari = '".$user."'";
         
-        $result=mysqli_query($con,$sql);
+        switch($edad['tipusUsuari']){
+            case ">18";
+                $sql_18="SELECT contingut.titol,contingut.categoria,contingut.video from contracte INNER JOIN (
+                        catfav INNER JOIN( 
+                            categoria INNER JOIN(
+                                contingut INNER JOIN
+                                    recomanat ON contingut.idContingut = recomanat.idContingut AND recomanat.tipusUsuari='>18') 
+                                    ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
+                                    ON catfav.categoria = categoria.categoria)
+                                    ON contracte.idContracte = catfav.idContracte";                                   
 
-        while($mostrar=mysqli_fetch_array($result)){
-        ?>
-            <tr>
-            <td><center><?php echo $mostrar['idContingut'] ?></center></td> 
-            <td><center><?php echo $mostrar['titol'] ?></center></td> 
-            <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-            <td><center><?php echo $mostrar['video'] ?></center></td> 
-        </tr>
-    <?php
-    }
-
-    ?>  
-    </table>
-
-</body>
-</html>
+                $result=mysqli_query($con,$sql_18);
+                
+                while($mostrar=mysqli_fetch_array($result)){
+                    ?>
+                                    <tr>
+                                        <td><center><?php echo $mostrar['titol'] ?></center></td> 
+                                        <td><center><?php echo $mostrar['categoria'] ?></center></td> 
+                                        <td><center><?php echo $mostrar['video'] ?></center></td> 
+                                    </tr>
+                                    <?php
+                                }
+                        case "9-18":
+                            $sql_9_18="SELECT contingut.titol,contingut.categoria,contingut.video from contracte INNER JOIN (
+                                        catfav INNER JOIN( 
+                                            categoria INNER JOIN(
+                                                contingut INNER JOIN
+                                                recomanat ON contingut.idContingut = recomanat.idContingut AND recomanat.tipusUsuari='9-18') 
+                                                ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
+                                                ON catfav.categoria = categoria.categoria)
+                                                ON contracte.idContracte = catfav.idContracte";  
+            
+                            $result=mysqli_query($con,$sql_9_18);
+            
+                                while($mostrar=mysqli_fetch_array($result)){
+                    ?>
+                                        <tr>
+                                            <td><center><?php echo $mostrar['titol'] ?></center></td> 
+                                            <td><center><?php echo $mostrar['categoria'] ?></center></td> 
+                                            <td><center><?php echo $mostrar['video'] ?></center></td> 
+                                        </tr>
+                                        <?php
+                                }
+                        case "<9":
+                            $sql_9="SELECT contingut.titol,contingut.categoria,contingut.video from contracte INNER JOIN (
+                                        catfav INNER JOIN( 
+                                            categoria INNER JOIN(
+                                                contingut INNER JOIN
+                                                recomanat ON contingut.idContingut = recomanat.idContingut AND recomanat.tipusUsuari='<9') 
+                                                    ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
+                                                    ON catfav.categoria = categoria.categoria)
+                                                    ON contracte.idContracte = catfav.idContracte";  
+            
+                            $result=mysqli_query($con,$sql_9);
+            
+                                while($mostrar=mysqli_fetch_array($result)){
+                    ?>
+                                    <tr>
+                                        <td><center><?php echo $mostrar['titol'] ?></center></td> 
+                                        <td><center><?php echo $mostrar['categoria'] ?></center></td> 
+                                        <td><center><?php echo $mostrar['video'] ?></center></td> 
+                                    </tr>
+                                    <?php
+                                }
+                                break;
+                    }
+                    
+            
+                ?>  
+                </table>
+            
+            </body>
+            </html>
