@@ -37,14 +37,14 @@
         switch($edad['tipusUsuari']){
             case ">18":
                 $sql_18="SELECT contingut.titol,contingut.categoria,contingut.video FROM contracte  
-                                INNER JOIN (catfav
-                                    INNER JOIN (categoria
-                                        INNER JOIN (contingut
-                                            INNER JOIN recomanat
-                                            ON recomanat.idContingut=contingut.idContingut AND recomanat.tipusUsuari='>18')
-                                        ON contingut.categoria=categoria.categoria)
-                                    ON categoria.categoria=catfav.categoria)
-                            ON catfav.idContracte=contracte.idContracte AND contracte.idContracte='".$user"'";
+                INNER JOIN (catfav
+                    INNER JOIN (categoria
+                        INNER JOIN (contingut
+                            INNER JOIN recomanat
+                            ON contingut.idContingut=recomanat.idContingut AND recomanat.tipusUsuari='>18')
+                        ON categoria.categoria=contingut.categoria)
+                    ON catfav.categoria=categoria.categoria)
+            ON contracte.idContracte=catfav.idContracte AND contracte.nomUsuari='".$user."'";
                 
                 $result=mysqli_query($con,$sql_18);
 
@@ -63,10 +63,10 @@
                                     INNER JOIN (categoria
                                         INNER JOIN (contingut
                                             INNER JOIN recomanat
-                                            ON recomanat.idContingut=contingut.idContingut AND recomanat.tipusUsuari='>18')
-                                        ON contingut.categoria=categoria.categoria)
-                                    ON categoria.categoria=catfav.categoria)
-                            ON catfav.idContracte=contracte.idContracte AND contracte.idContracte='".$user"'";
+                                            ON contingut.idContingut=recomanat.idContingut AND recomanat.tipusUsuari='9-18')
+                                        ON categoria.categoria=contingut.categoria)
+                                    ON catfav.categoria=categoria.categoria)
+                            ON contracte.idContracte=catfav.idContracte AND contracte.nomUsuari='".$user."'";
 
                 $result=mysqli_query($con,$sql_9_18);
 
@@ -80,9 +80,15 @@
                             <?php
                     }
             case "<9":
-                $sql_9="SELECT contingut.titol,contingut.categoria,contingut.video FROM recomanat  
-                                INNER JOIN contingut 
-                                ON recomanat.idContingut=contingut.idContingut AND recomanat.tipusUsuari='<9'";
+                $sql_9="SELECT contingut.titol,contingut.categoria,contingut.video FROM contracte  
+                            INNER JOIN (catfav
+                                INNER JOIN (categoria
+                                    INNER JOIN (contingut
+                                        INNER JOIN recomanat
+                                        ON contingut.idContingut=recomanat.idContingut AND recomanat.tipusUsuari='<9')
+                                    ON categoria.categoria=contingut.categoria)
+                                ON catfav.categoria=categoria.categoria)
+                        ON contracte.idContracte=catfav.idContracte AND contracte.nomUsuari='".$user."'";
 
                 $result=mysqli_query($con,$sql_9);
 
