@@ -24,10 +24,10 @@
     
     <table class="center">
         <tr>
-            <td><b><p style="color:black">idContingut</p></b></td> 
             <td><b><p style="color:black">Titol</p></b></td> 
             <td><b><p style="color:black">Categoria</p></b></td> 
             <td><b><p style="color:black">Video</p></b></td> 
+            <td><b><p style="color:black">Añadir a favoritos</p></b></td> 
         </tr>
         <?php
         include "../PHP/conexion.php";
@@ -37,16 +37,15 @@
         $edad=mysqli_fetch_array($edad);
         switch($edad['tipusUsuari']){
             case ">18":
-                $sql_18="SELECT contingut.idContingut,contingut.titol,contingut.categoria,contingut.video FROM recomanat  
+                $sql_18="SELECT contingut.titol,contingut.categoria,contingut.video FROM recomanat  
                             INNER JOIN contingut 
-                            ON recomanat.idContingut=contingut.idContingut AND recomanat.tipusUsuari='>18'";
+                            ON recomanat.video=contingut.video AND recomanat.tipusUsuari='>18'";
                 
                 $result=mysqli_query($con,$sql_18);
 
                     while($mostrar=mysqli_fetch_array($result)){
         ?>
                         <tr>
-                            <td><center><?php echo $mostrar['idContingut'] ?></center></td> 
                             <td><center><?php echo $mostrar['titol'] ?></center></td> 
                             <td><center><?php echo $mostrar['categoria'] ?></center></td> 
                             <td><center><?php echo $mostrar['video'] ?></center></td> 
@@ -54,16 +53,15 @@
                         <?php
                     }
             case "9-18":
-                $sql_9_18="SELECT contingut.idContingut,contingut.titol,contingut.categoria,contingut.video FROM recomanat  
+                $sql_9_18="SELECT contingut.titol,contingut.categoria,contingut.video FROM recomanat  
                                 INNER JOIN contingut 
-                                ON recomanat.idContingut=contingut.idContingut AND recomanat.tipusUsuari='9-18'";
+                                ON recomanat.video=contingut.video AND recomanat.tipusUsuari='9-18'";
 
                 $result=mysqli_query($con,$sql_9_18);
 
                     while($mostrar=mysqli_fetch_array($result)){
         ?>
                             <tr>
-                                <td><center><?php echo $mostrar['idContingut'] ?></center></td> 
                                 <td><center><?php echo $mostrar['titol'] ?></center></td> 
                                 <td><center><?php echo $mostrar['categoria'] ?></center></td> 
                                 <td><center><?php echo $mostrar['video'] ?></center></td> 
@@ -71,16 +69,15 @@
                             <?php
                     }
             case "<9":
-                $sql_9="SELECT contingut.idContingut,contingut.titol,contingut.categoria,contingut.video FROM recomanat  
-                                INNER JOIN contingut 
-                                ON recomanat.idContingut=contingut.idContingut AND recomanat.tipusUsuari='<9'";
+                $sql_9="SELECT contingut.titol,contingut.categoria,contingut.video FROM recomanat  
+                            INNER JOIN contingut 
+                            ON recomanat.video=contingut.video AND recomanat.tipusUsuari='<9'";
 
                 $result=mysqli_query($con,$sql_9);
 
                     while($mostrar=mysqli_fetch_array($result)){
         ?>
                         <tr>
-                            <td><center><?php echo $mostrar['idContingut'] ?></center></td> 
                             <td><center><?php echo $mostrar['titol'] ?></center></td> 
                             <td><center><?php echo $mostrar['categoria'] ?></center></td> 
                             <td><center><?php echo $mostrar['video'] ?></center></td> 
