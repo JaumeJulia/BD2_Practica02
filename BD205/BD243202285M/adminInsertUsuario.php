@@ -18,7 +18,7 @@ while (!isset($_SESSION)) {
       
 }
 
-include "conexion.php";
+include "../PHP/conexion.php";
 
 $user= $_POST['uname'];
 
@@ -48,14 +48,14 @@ if (mysqli_query($con,$cadena)) {
 
     echo "<script>
 alert('Usuario creado');
-window.location.href='Admin.php';
+window.location.href='../PHP/Admin.php';
 </script>";
 
 } else {
 
     echo "<script>
 alert('Error al crear usuario');
-window.location.href='Admin.php';
+window.location.href='../PHP/Admin.php';
 </script>";
 
 }
