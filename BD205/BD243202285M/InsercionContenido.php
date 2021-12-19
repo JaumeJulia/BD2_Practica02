@@ -53,27 +53,27 @@ input[type=text]:focus, input[type=password]:focus {
 </head>
 <body>
 
-<form action="adminInsertUsuario.php" method="post">
+<form action="adminInsertContenido.php" method="post">
   <div class="container">
   <center><a href="../PHP/Admin.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>
-    <h2><center>Creacion de Usuario</center></h2>
+    <h2><center>Insercion de Contenido</center></h2>
     <hr>
 
-    <label for="uname"><b>Nombre Usuario</b></label>
-    <input type="text" placeholder="Introduce un nombre de usuario" name="uname" id="uname" required>
+    <label for="id"><b>ID Contenido</b></label>
+    <input type="text" placeholder="Introduce el ID del Contenido" name="id" id="id" required>
 
-    <label for="name"><b>Nombre y Apellidos</b></label>
-    <input type="text" placeholder="Introduce tu nombre" name="name" id="name" required>
+    <label for="categoria"><b>Categoria</b></label>
+    <input type="text" placeholder="Introduce la Categoria del Contenido" name="categoria" id="categoria" required>
 
-    <label for="psw"><b>Contraseña</b></label>
-    <input type="password" placeholder="Introduce una contraseña" name="psw" id="psw" required>
+    <label for="titulo"><b>Titulo</b></label>
+    <input type="text" placeholder="Introduce el titulo" name="titulo" id="titulo" required>
 
-    <label for="psw-repeat"><b>Repetir Contraseña</b></label>
-    <input type="password" placeholder="Repite la contraseña" name="psw-repeat" id="psw-repeat" required>
+    <label for="video"><b>Video</b></label>
+    <input type="text" placeholder="Añade la URL del contenido" name="video" id="video" required>
 
-    <label for="number"><b>Edad</b></label>
-    <input type="number" placeholder="Introduce tu edad" name="number" id="number" required>
-    <button type="submit" class="button button1" style="color: #68b9da;" >Añadir Usuario</button>
+    <label for="fecha"><b>Fecha</b></label>
+    <input type="text" placeholder="Introduce la fecha de introduccion (yyyy-mm-dd) " name="fecha" id="fecha" required>
+    <button type="submit" class="button button1" style="color: #68b9da;" >Añadir Contenido</button>
     
   </div>
 

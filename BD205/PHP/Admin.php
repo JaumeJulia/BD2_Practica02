@@ -49,15 +49,22 @@
     <form action="../BD243202285M/InsercionUsuario.php" method="post">
     <div class="container">
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Añadir Usuario</button></center>
-    <form action="../BD243202285M/InsercionUsuario.php" method="post">
+    </form>
+
+    <form action="../BD243202285M/InsercionContenido.php" method="post">
     <div class="container">
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Añadir Contenido</button></center>
-    <form action="../BD243202285M/InsercionUsuario.php" method="post">
+    </form>
+
+    <form action="../BD243202285M/InsercionContenido.php" method="post">
     <div class="container">
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Tabla Usuarios</button></center>
-    <form action="../BD243202285M/InsercionUsuario.php" method="post">
+    </form>
+
+    <form action="../BD243202285M/InsercionContenido.php" method="post">
     <div class="container">
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Tabla Contenidos</button></center>
+    </form>
   </div>
 </table>
 </body>
