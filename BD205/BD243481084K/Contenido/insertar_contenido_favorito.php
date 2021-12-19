@@ -1,9 +1,8 @@
 <?php
-$idFavoritCont = $_POST['idFavoritCont'];
-$idContracte = $_POST['idContracte'];
-$idContingut = $_POST['idContingut'];
+$usuari = $_POST['usuari'];  //Hacer un SELECT con el nombre de usuario para sacar el idContracte
+$video = $_POST['video'];
 
-$cadena = "insert into CONTFAV (idFavoritCont,idContracte,idContingut) values ('".$idFavoritCont."','".$idContracte."','".$idContingut."')";
+$cadena = "insert into CONTFAV (idContracte,video) values ('".$idContracte."','".$video."')";
 
 
 $con = mysqli_connect("localhost","root",""); 
