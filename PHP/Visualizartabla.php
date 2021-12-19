@@ -1,8 +1,3 @@
-<?php
-    
-    //include 'conexion.php';
-    //include 'identifica.php';
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +17,10 @@
 
 <head>
 <body>
-<center><a href="Usuario.php"><img src="../Images/Notflix.PNG" width="300"></a></center>
+<?php 
+    $user= $_GET['uname'];
+    echo '<center><a href="Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    ?>
 <center><H3>Tabla de facturas</H3></center>
 <br>
 <br>
@@ -38,7 +36,8 @@
                 ?>
         </tr>
         <?php 
-        $user= $_POST['uname'];
+        include "conexion.php";
+        $user= $_GET['uname'];
         $sql="SELECT * from Contracte INNER JOIN Factura on Contracte.idContracte = Factura.idContracte WHERE Contracte.nomUsuari='".$user."'";//revisar el select
         
         $result=mysqli_query($con,$sql);

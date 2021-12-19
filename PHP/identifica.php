@@ -34,7 +34,7 @@ if (mysqli_num_rows($result) > 0){
 
     }else{
         
-        include "Visualizartabla.php";
+        include "Usuario.php";
    
     }
   

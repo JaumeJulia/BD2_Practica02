@@ -16,9 +16,12 @@
     </style>
 <head>
 <body>
-<center><a href="Usuario.php"><img src="../Images/Notflix.PNG" width="300"></a></center>
-<center><H3>Nuevos Contenidos Recomendados</H3></center>
-<br>
+    <?php $user= $_GET['uname'];
+    echo '<center><a href="Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    ?>
+    <center><H3>Nuevos Contenidos Recomendados</H3></center>
+    <br>
+    
     <table class="center">
         <tr>
             <td><b><p style="color:black">idContingut</p></b></td> 
@@ -32,7 +35,8 @@
         </tr>
         <?php 
         //como mirar la fecha actual
-        $user= $_POST['uname'];
+        include "conexion.php";
+        $user= $_GET['uname'];
         $date = date('y-m-d');
         $sql="SELECT contingut.idContingut, contingut.titol, contingut.categoria, contingut.video from Usuari INNER JOIN(
             contracte INNER JOIN (
