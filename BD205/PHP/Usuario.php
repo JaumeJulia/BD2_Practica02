@@ -54,7 +54,7 @@ $consultar_contenidos_favoritos = '<a href="../BD243481084K/Contenido/mostrar_co
 echo "<table align='center'>";
     echo "<tr><td>".$consulta_recomendados. "</td></tr>";
     echo "<tr><td>".$visualizar_facturas."</td></tr>";
-    echo "<tr><td>".$consultar_contenidos."</td></tr>";
+    echo "<tr><td>".$consultar_contenido_completo."</td></tr>";
     echo "<tr><td>".$consultar_categorias_favoritas."</td></tr>";
     echo "<tr><td>".$consultar_contenidos_favoritos."</td></tr>";
 echo "</table>";
