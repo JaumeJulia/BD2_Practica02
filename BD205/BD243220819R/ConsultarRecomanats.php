@@ -43,7 +43,7 @@
                         catfav INNER JOIN( 
                             categoria INNER JOIN(
                                 contingut INNER JOIN
-                                    recomanat ON contingut.idContingut = recomanat.idContingut AND recomanat.tipusUsuari='>18') 
+                                    recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='>18') 
                                     ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
                                     ON catfav.categoria = categoria.categoria)
                                     ON contracte.idContracte = catfav.idContracte";                                   
@@ -64,7 +64,7 @@
                                         catfav INNER JOIN( 
                                             categoria INNER JOIN(
                                                 contingut INNER JOIN
-                                                recomanat ON contingut.idContingut = recomanat.idContingut AND recomanat.tipusUsuari='9-18') 
+                                                recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='9-18') 
                                                 ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
                                                 ON catfav.categoria = categoria.categoria)
                                                 ON contracte.idContracte = catfav.idContracte";  
@@ -85,7 +85,7 @@
                                         catfav INNER JOIN( 
                                             categoria INNER JOIN(
                                                 contingut INNER JOIN
-                                                recomanat ON contingut.idContingut = recomanat.idContingut AND recomanat.tipusUsuari='<9') 
+                                                recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='<9') 
                                                     ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
                                                     ON catfav.categoria = categoria.categoria)
                                                     ON contracte.idContracte = catfav.idContracte";  
