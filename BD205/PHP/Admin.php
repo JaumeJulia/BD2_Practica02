@@ -2,8 +2,14 @@
 <html>
 <body>
 <style>
-    body {font-family: Arial, Helvetica, sans-serif;}
+    body {font-family: Arial, Helvetica, sans-serif;
+        background-color: pink;
+    }
     form {border: 3px solid #f1f1f1;}
+    .container {
+     padding: 16px;
+     background-color: #99d8ea;
+    }
     a:link {
     color: #68b9da;
     background-color: transparent;
@@ -33,16 +39,26 @@
         cursor: pointer;
         width: 20%;
         }
-        .button1 {background-color: white  ;border: 2px solid #68b9da;}
-        .button2 {background-color: white  ;border: 2px solid pink;}
+        .button1 {background-color:  pink ;border: 2px solid #ffff80;}
+      
     </style>
+    <div class="container">
 <center><img src="../Images/Notflix.PNG" width="300"></center>
 <br>
 <table align="center">
-    <tr><td><a class="button button1" href="../BD243202285M/InsercionUsuario.php">Añadir Usuario</a></td></tr>
-    <tr><td><a class="button button2" href="Usuario.php">Añadir Contenido</a></td></tr>
-    <tr><td><a class="button button1" href="Usuario.php">Modificar Tabla Usuarios</a></td></tr>
-    <tr><td><a class="button button2" href="Usuario.php">Modificar Tabla Contenidos</a></td></tr>
+    <form action="../BD243202285M/InsercionUsuario.php" method="post">
+    <div class="container">
+    <center><button type="submit" class="button button1" style="color: #68b9da;" >Añadir Usuario</button></center>
+    <form action="../BD243202285M/InsercionUsuario.php" method="post">
+    <div class="container">
+    <center><button type="submit" class="button button1" style="color: #68b9da;" >Añadir Contenido</button></center>
+    <form action="../BD243202285M/InsercionUsuario.php" method="post">
+    <div class="container">
+    <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Tabla Usuarios</button></center>
+    <form action="../BD243202285M/InsercionUsuario.php" method="post">
+    <div class="container">
+    <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Tabla Contenidos</button></center>
+  </div>
 </table>
 </body>
 </html>
