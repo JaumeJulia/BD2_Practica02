@@ -47,7 +47,6 @@ INSERT INTO `categoria` (`categoria`) VALUES
 --
 
 CREATE TABLE `catfav` (
-  `idFavoritCat` char(9) NOT NULL,
   `idContracte` int(9) NOT NULL,
   `categoria` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -56,8 +55,8 @@ CREATE TABLE `catfav` (
 -- Volcado de datos para la tabla `catfav`
 --
 
-INSERT INTO `catfav` (`idFavoritCat`, `idContracte`, `categoria`) VALUES
-('1', 1, 'drama');
+INSERT INTO `catfav` (`idContracte`, `categoria`) VALUES
+(1, 'drama');
 
 -- --------------------------------------------------------
 
@@ -66,9 +65,8 @@ INSERT INTO `catfav` (`idFavoritCat`, `idContracte`, `categoria`) VALUES
 --
 
 CREATE TABLE `contfav` (
-  `idFavoritCont` char(9) NOT NULL,
   `idContracte` int(9) NOT NULL,
-  `idContingut` int(9) NOT NULL
+  `video` char(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -78,7 +76,6 @@ CREATE TABLE `contfav` (
 --
 
 CREATE TABLE `contingut` (
-  `idContingut` int(9) NOT NULL,
   `categoria` char(30) NOT NULL,
   `titol` char(30) NOT NULL,
   `video` char(250) NOT NULL,
@@ -89,11 +86,11 @@ CREATE TABLE `contingut` (
 -- Volcado de datos para la tabla `contingut`
 --
 
-INSERT INTO `contingut` (`idContingut`, `categoria`, `titol`, `video`, `dataIntroduit`) VALUES
-(1, 'drama', 'olaMundo', 'mi video', '2021-12-15'),
-(2, 'drama', 'olaMundo2', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/hw1cCXHibEM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '2021-12-09'),
-(3, 'drama', 'olaMundo3', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/hw1cCXHibEM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '2021-12-15'),
-(4, 'comedia', 'olaMundo4', 'mi video4', '2021-12-15');
+INSERT INTO `contingut` (`categoria`, `titol`, `video`, `dataIntroduit`) VALUES
+('drama', 'olaMundo', 'mi video', '2021-12-15'),
+('drama', 'olaMundo2', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/hw1cCXHibEM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '2021-12-09'),
+('drama', 'olaMundo3', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '2021-12-15'),
+('comedia', 'olaMundo4', 'mi video4', '2021-12-15');
 
 -- --------------------------------------------------------
 
@@ -146,7 +143,7 @@ INSERT INTO `factura` (`idFactura`, `idContracte`, `data`, `import`) VALUES
 CREATE TABLE `missatge` (
   `idMissatge` char(9) NOT NULL,
   `nomUsuari` char(30) NOT NULL,
-  `idContingut` int(9) NOT NULL,
+  `video` char(250) NOT NULL,
   `missatge` char(100) NOT NULL,
   `vist` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -159,17 +156,17 @@ CREATE TABLE `missatge` (
 
 CREATE TABLE `recomanat` (
   `tipusUsuari` char(30) NOT NULL,
-  `idContingut` int(9) NOT NULL
+  `video` char(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `recomanat`
 --
 
-INSERT INTO `recomanat` (`tipusUsuari`, `idContingut`) VALUES
-('<9', 1),
-('>18', 2),
-('>18', 3);
+INSERT INTO `recomanat` (`tipusUsuari`, `video`) VALUES
+('<9', 'mi cola en tu boca'),
+('>18', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/hw1cCXHibEM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>'),
+('>18', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>');
 
 -- --------------------------------------------------------
 
@@ -244,7 +241,6 @@ ALTER TABLE `categoria`
 -- Indices de la tabla `catfav`
 --
 ALTER TABLE `catfav`
-  ADD PRIMARY KEY (`idFavoritCat`),
   ADD KEY `idContracte` (`idContracte`),
   ADD KEY `categoria` (`categoria`);
 
@@ -252,15 +248,14 @@ ALTER TABLE `catfav`
 -- Indices de la tabla `contfav`
 --
 ALTER TABLE `contfav`
-  ADD PRIMARY KEY (`idFavoritCont`),
   ADD KEY `idContracte` (`idContracte`),
-  ADD KEY `idContingut` (`idContingut`);
+  ADD KEY `video` (`video`);
 
 --
 -- Indices de la tabla `contingut`
 --
 ALTER TABLE `contingut`
-  ADD PRIMARY KEY (`idContingut`),
+  ADD PRIMARY KEY (`video`),
   ADD KEY `categoria` (`categoria`);
 
 --
@@ -284,14 +279,13 @@ ALTER TABLE `factura`
 ALTER TABLE `missatge`
   ADD PRIMARY KEY (`idMissatge`),
   ADD KEY `nomUsuari` (`nomUsuari`),
-  ADD KEY `idContingut` (`idContingut`);
+  ADD KEY `video` (`video`);
 
 --
 -- Indices de la tabla `recomanat`
 --
 ALTER TABLE `recomanat`
-  ADD PRIMARY KEY (`tipusUsuari`,`idContingut`),
-  ADD KEY `idContingut` (`idContingut`);
+  ADD PRIMARY KEY (`tipusUsuari`, `video`);
 
 --
 -- Indices de la tabla `tipus_contracte`
@@ -328,7 +322,7 @@ ALTER TABLE `catfav`
 --
 ALTER TABLE `contfav`
   ADD CONSTRAINT `contfav_ibfk_1` FOREIGN KEY (`idContracte`) REFERENCES `contracte` (`idContracte`),
-  ADD CONSTRAINT `contfav_ibfk_2` FOREIGN KEY (`idContingut`) REFERENCES `contingut` (`idContingut`);
+  ADD CONSTRAINT `contfav_ibfk_2` FOREIGN KEY (`video`) REFERENCES `contingut` (`video`);
 
 --
 -- Filtros para la tabla `contingut`
@@ -354,15 +348,14 @@ ALTER TABLE `factura`
 --
 ALTER TABLE `missatge`
   ADD CONSTRAINT `missatge_ibfk_1` FOREIGN KEY (`nomUsuari`) REFERENCES `usuari` (`nomUsuari`),
-  ADD CONSTRAINT `missatge_ibfk_2` FOREIGN KEY (`idContingut`) REFERENCES `contingut` (`idContingut`);
+  ADD CONSTRAINT `missatge_ibfk_2` FOREIGN KEY (`video`) REFERENCES `contingut` (`video`);
 
 --
 -- Filtros para la tabla `recomanat`
 --
 ALTER TABLE `recomanat`
-  ADD CONSTRAINT `recomanat_ibfk_1` FOREIGN KEY (`tipusUsuari`) REFERENCES `tipus_usuari` (`tipusUsuari`),
-  ADD CONSTRAINT `recomanat_ibfk_2` FOREIGN KEY (`idContingut`) REFERENCES `contingut` (`idContingut`);
-
+  ADD CONSTRAINT `recomanat_ibfk_1` FOREIGN KEY (`tipusUsuari`) REFERENCES `tipus_usuari` (`tipusUsuari`);
+  
 --
 -- Filtros para la tabla `usuari`
 --
