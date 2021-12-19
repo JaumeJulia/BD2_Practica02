@@ -42,7 +42,7 @@
                     INNER JOIN (categoria
                         INNER JOIN (contingut
                             INNER JOIN recomanat
-                            ON contingut.idContingut=recomanat.idContingut AND recomanat.tipusUsuari='>18')
+                            ON contingut.video=recomanat.video AND recomanat.tipusUsuari='>18')
                         ON categoria.categoria=contingut.categoria)
                     ON catfav.categoria=categoria.categoria)
             ON contracte.idContracte=catfav.idContracte AND contracte.nomUsuari='".$user."'";
@@ -64,7 +64,7 @@
                                     INNER JOIN (categoria
                                         INNER JOIN (contingut
                                             INNER JOIN recomanat
-                                            ON contingut.idContingut=recomanat.idContingut AND recomanat.tipusUsuari='9-18')
+                                            ON contingut.video=recomanat.video AND recomanat.tipusUsuari='9-18')
                                         ON categoria.categoria=contingut.categoria)
                                     ON catfav.categoria=categoria.categoria)
                             ON contracte.idContracte=catfav.idContracte AND contracte.nomUsuari='".$user."'";
@@ -86,7 +86,7 @@
                                 INNER JOIN (categoria
                                     INNER JOIN (contingut
                                         INNER JOIN recomanat
-                                        ON contingut.idContingut=recomanat.idContingut AND recomanat.tipusUsuari='<9')
+                                        ON contingut.video=recomanat.video AND recomanat.tipusUsuari='<9')
                                     ON categoria.categoria=contingut.categoria)
                                 ON catfav.categoria=categoria.categoria)
                         ON contracte.idContracte=catfav.idContracte AND contracte.nomUsuari='".$user."'";
