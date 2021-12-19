@@ -33,13 +33,14 @@ if (mysqli_num_rows($result) > 0){
         include "../admin.html";
 
     }else{
-
-        echo("Eres no ADMIN");
+        
+        include "Visualizartabla.php";
+   
     }
   
 }else{
 
-    include "index.html";
+    include "../index.html";
 
     echo('<span style="color: red;" /><center> Usuario o contraseña incorrectos </center></span>');
 
