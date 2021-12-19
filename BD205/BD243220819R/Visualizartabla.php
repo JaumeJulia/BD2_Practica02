@@ -18,8 +18,9 @@
 <head>
 <body>
 <?php 
+    
     $user= $_GET['uname'];
-    echo '<center><a href="Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     ?>
 <center><H3>Tabla de facturas</H3></center>
 <br>
@@ -30,15 +31,10 @@
             <td><b><p style="color:black">idContracte</p></b></td> 
             <td><b><p style="color:black">Data</p></b></td> 
             <td><b><p style="color:black">Import</p></b></td> 
-                <?php
-                    //haremos la referencia al parametro que queremos visualizar
-                    //Ej: <td>nombre </td> 
-                ?>
         </tr>
         <?php 
-        include "conexion.php";
-        $user= $_GET['uname'];
-        $sql="SELECT * from Contracte INNER JOIN Factura on Contracte.idContracte = Factura.idContracte WHERE Contracte.nomUsuari='".$user."'";//revisar el select
+        include "../PHP/conexion.php";
+        $sql="SELECT * from Contracte INNER JOIN Factura on Contracte.idContracte = Factura.idContracte WHERE Contracte.nomUsuari='".$user."'";
         
         $result=mysqli_query($con,$sql);
 
@@ -56,4 +52,5 @@
     </table>
 
 </body>
+</html>
 </html>
