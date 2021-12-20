@@ -49,11 +49,11 @@
                             <td><center><?php echo $mostrar['titol'] ?></center></td> 
                             <td><center><?php echo $mostrar['categoria'] ?></center></td> 
                             <td><center><?php echo $mostrar['video'] ?></center></td>
-                            <td><form method="post" action="../BD243481084K/insertar_contenido_favorito.php">
-                                <input type="submit"/>Favorito
-                                <input type="hidden" name="usuari" value="<?php echo $user;?>"/>
-                                <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>"/>
-                                </form>
+                            <td><form method="post" action="../BD243481084K/Contenido/insertar_contenido_favorito.php">
+                                    <input type="hidden" name="usuari" value="<?php echo $user;?>">
+                                    <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>
+                                    <center><button type="submit" formaction="../BD243481084K/Contenido/insertar_contenido_favorito.php">Favorito</button></center>
+                                    </form>
                             </td>
                         </tr>
                         <?php
@@ -71,10 +71,10 @@
                                 <td><center><?php echo $mostrar['titol'] ?></center></td> 
                                 <td><center><?php echo $mostrar['categoria'] ?></center></td> 
                                 <td><center><?php echo $mostrar['video'] ?></center></td> 
-                                <td><form method="post" action="../BD243481084K/insertar_contenido_favorito.php">
-                                    <input type="submit"/>Favorito
-                                    <input type="hidden" name="usuari" value="<?php echo $user;?>"/>
-                                    <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>"/>
+                                <td><form method="post" action="../BD243481084K/Contenido/insertar_contenido_favorito.php">
+                                    <input type="hidden" name="usuari" value="<?php echo $user;?>">
+                                    <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>
+                                    <center><button type="submit" formaction="../BD243481084K/Contenido/insertar_contenido_favorito.php">Favorito</button></center>
                                     </form>
                                 </td>
                             </tr>
@@ -93,10 +93,11 @@
                             <td><center><?php echo $mostrar['titol'] ?></center></td> 
                             <td><center><?php echo $mostrar['categoria'] ?></center></td> 
                             <td><center><?php echo $mostrar['video'] ?></center></td> 
-                            <td><form method="post" action="../BD243481084K/insertar_contenido_favorito.php">
-                                <input type="submit"/>Favorito
-                                <input type="hidden" name="usuari" value="<?php echo $user;?>"/>
-                                <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>"/>
+                            <td><form method="post" action="../BD243481084K/Contenido/insertar_contenido_favorito.php">
+                                    <input type="hidden" name="usuari" value="<?php echo $user;?>">
+                                    <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>
+                                    <center><button type="submit" formaction="../BD243481084K/Contenido/insertar_contenido_favorito.php">Favorito</button></center>
+                                    </form>
                                 </form>
                             </td>
                         </tr>
