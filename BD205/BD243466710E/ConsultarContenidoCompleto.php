@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Recomendaciones</title>
+    <title>Contenidos</title>
     <style>
     table, th, td {
         border: 2px solid pink;
@@ -34,6 +34,7 @@
         $user= $_GET['uname'];
         $sql_edad="SELECT usuari.tipusUsuari FROM usuari WHERE usuari.nomUsuari='".$user."'";
         $edad=mysqli_query($con,$sql_edad);
+        if($edad){
         $edad=mysqli_fetch_array($edad);
         switch($edad['tipusUsuari']){
             case ">18":
@@ -42,7 +43,7 @@
                             ON recomanat.video=contingut.video AND recomanat.tipusUsuari='>18'";
                 
                 $result=mysqli_query($con,$sql_18);
-
+                if($result){
                     while($mostrar=mysqli_fetch_array($result)){
         ?>
                         <tr>
@@ -58,13 +59,14 @@
                         </tr>
                         <?php
                     }
+                }
             case "9-18":
                 $sql_9_18="SELECT contingut.titol,contingut.categoria,contingut.video FROM recomanat  
                                 INNER JOIN contingut 
                                 ON recomanat.video=contingut.video AND recomanat.tipusUsuari='9-18'";
 
                 $result=mysqli_query($con,$sql_9_18);
-
+                if($result){
                     while($mostrar=mysqli_fetch_array($result)){
         ?>
                             <tr>
@@ -80,13 +82,14 @@
                             </tr>
                             <?php
                     }
+                }
             case "<9":
                 $sql_9="SELECT contingut.titol,contingut.categoria,contingut.video FROM recomanat  
                             INNER JOIN contingut 
                             ON recomanat.video=contingut.video AND recomanat.tipusUsuari='<9'";
 
                 $result=mysqli_query($con,$sql_9);
-
+                if($result){
                     while($mostrar=mysqli_fetch_array($result)){
         ?>
                         <tr>
@@ -103,9 +106,10 @@
                         </tr>
                         <?php
                     }
+                }
                     break;
         }
-        
+    }
 
     ?>  
     </table>
