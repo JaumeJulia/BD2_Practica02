@@ -48,7 +48,7 @@
         $sql="SELECT * from Contracte";
         $date = date_create_from_format('Y-m-d', date('Y-m-d'));
         $result=mysqli_query($con,$sql);
-        if($result){
+        if(mysqli_num_rows($result) > 0){
         while($mostrar=mysqli_fetch_array($result)){
         ?>
             <tr>
