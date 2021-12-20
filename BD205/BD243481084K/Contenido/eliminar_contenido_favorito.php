@@ -4,7 +4,7 @@
 include "../../PHP/conexion.php";
 $eliminar = $_POST['categoria'];
 
-$consulta = 'DELETE from CONTFAV where CONTFAV.idContingut = '.$eliminar;
+$consulta = 'DELETE from CONTFAV where CONTFAV.idContingut = "'.$eliminar.'"';
 
 $resultado = mysqli_query($con,$consulta);
 
