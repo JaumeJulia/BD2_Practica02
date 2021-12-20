@@ -1,9 +1,8 @@
 <?php
-$idFavoritCat = $_POST['idFavoritCat'];
 $idContracte = $_POST['idContracte'];
 $categoria = $_POST['categoria'];
 
-$cadena = "insert into CATFAV (idFavoritCat,idContracte,categoria) values ('".$idFavoritCat."','".$idContracte."','".$categoria."')";
+$cadena = "insert into CATFAV (idContracte,categoria) values ('".$idContracte."','".$categoria."')";
 
 
 $con = mysqli_connect("localhost","root","");
