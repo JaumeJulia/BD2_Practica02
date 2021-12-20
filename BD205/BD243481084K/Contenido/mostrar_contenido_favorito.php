@@ -4,15 +4,15 @@
 <body>
 
 <?php
-//$con = mysqli_connect("localhost","root","");
-//$db = mysqli_select_db($con,"BD205");
 include "../../PHP/conexion.php";
 
-$user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
+if (array_key_exists('uname',$_GET)){
+    $user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
+}
 
-$consulta = 'SELECT idContingut, categoria, titol, video from 
+$consulta = 'SELECT idContingut, categoria.categoria, titol, video from 
                 ( CONTRACTE INNER JOIN CONTFAV ON
-                contracte.nomUsuari = '.$user.'
+                contracte.nomUsuari = "'.$user.'"
                 AND contracte.idContracte = contfav.idContracte
                 ) INNER JOIN CONTINGUT ON
                 CONTFAV.idContingut = CONTINGUT.contingut'; 
