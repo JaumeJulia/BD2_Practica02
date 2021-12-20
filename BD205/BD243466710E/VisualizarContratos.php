@@ -40,6 +40,7 @@
             <td><b><p style="color:black">Tipo de Contrato</p></b></td> 
             <td><b><p style="color:black">Fecha de Alta</p></b></td> 
             <td><b><p style="color:black">Vigencia</p></b></td> 
+            <td><b><p style="color:black">Eliminar Contrato</p></b></td> 
         </tr>
         <?php 
         include "../PHP/conexion.php";
