@@ -47,7 +47,7 @@ $cadena = "INSERT INTO usuari VALUES ('".$user."', '".$tipoUsuario."', '".$pass.
 if (mysqli_query($con,$cadena)) {
 
     echo "<script>
-alert('Usuario creado');
+alert('Usuario creado con éxito');
 window.location.href='../index.html';
 </script>";
 
