@@ -33,7 +33,6 @@ $resultat = mysqli_query($con,$cadena);
 ?>
 <table align="center" class="center">
 <tr>
-    <td><center><b><p style="color:#68b9da">IDContingut</p></b></center></td> 
     <td><center><b><p style="color:#68b9da">Categoria</p></b></center></td> 
     <td><center><b><p style="color:#68b9da">Titol</p></b></center></td> 
     <td><center><b><p style="color:#68b9da">Video</p></b></center></td> 
@@ -47,7 +46,6 @@ include "../PHP/conexion.php";
 while($mostrar=mysqli_fetch_array($resultat)){
 ?>
     <tr>
-    <td><center><?php echo $mostrar['idContingut'] ?></center></td> 
     <td><center><?php echo $mostrar['categoria'] ?></center></td> 
     <td><center><?php echo $mostrar['titol'] ?></center></td> 
     <td><center><?php echo $mostrar['video'] ?></center></td> 

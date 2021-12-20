@@ -59,9 +59,6 @@ input[type=text]:focus, input[type=password]:focus {
     <h2><center>Insercion de Contenido</center></h2>
     <hr>
 
-    <label for="id"><b>ID Contenido</b></label>
-    <input type="text" placeholder="Introduce el ID del Contenido" name="id" id="id" required>
-
     <label for="categoria"><b>Categoria</b></label>
     <input type="text" placeholder="Introduce la Categoria del Contenido" name="categoria" id="categoria" required>
 
