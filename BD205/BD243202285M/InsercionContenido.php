@@ -55,12 +55,9 @@ input[type=text]:focus, input[type=password]:focus {
 
 <form action="adminInsertContenido.php" method="post">
   <div class="container">
-  <center><a href="../PHP/Admin.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>
+  <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     <h2><center>Insercion de Contenido</center></h2>
     <hr>
-
-    <label for="id"><b>ID Contenido</b></label>
-    <input type="text" placeholder="Introduce el ID del Contenido" name="id" id="id" required>
 
     <label for="categoria"><b>Categoria</b></label>
     <input type="text" placeholder="Introduce la Categoria del Contenido" name="categoria" id="categoria" required>

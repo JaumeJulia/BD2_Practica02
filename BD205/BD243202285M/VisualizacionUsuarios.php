@@ -21,7 +21,7 @@ body {font-family: Arial, Helvetica, sans-serif;
 
 </style>
 <div class="container">
-<center><a href="../PHP/Admin.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>
+<center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
 <div class="container">
 <br>
 
@@ -31,6 +31,8 @@ include "../PHP/conexion.php";
 $cadena = "select * from usuari";
 $resultat = mysqli_query($con,$cadena);
 ?>
+<center><H3><p style="color:#ffff80">Tabla de Usuarios</p></H3></center>
+
 <table align="center" class="center">
 <tr>
     <td><center><b><p style="color:#68b9da">nomUsuari</p></b></center></td> 
