@@ -4,10 +4,16 @@
 <body>
 
 <?php
-$con = mysqli_connect("localhost","root","");
-$db = mysqli_select_db($con,"BD205");
+//$con = mysqli_connect("localhost","root","");
+//$db = mysqli_select_db($con,"BD205");
+include "../../PHP/conexion.php";
 
 $user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
+$consultaContracte = 'SELECT idContracte FROM contracte WHERE contracte.nomUsuari = "'.$user.'"'; //sacamos el contrato del usuario
+
+$contestacioContracte = mysqli_query($con, $consultaContracte);
+$arrayContracte = mysqli_fetch_array($contestacioContracte);
+$idContracte = $arrayContracte['idContracte'];
 
 $consulta = 'SELECT categoria.categoria from 
                 ( contracte INNER JOIN catfav ON
@@ -17,12 +23,12 @@ $consulta = 'SELECT categoria.categoria from
                 catfav.categoria = CATEGORIA.categoria'; //hacer select
 
 
-$resultado = mysqli_query($con,$consulta);
+$categoriasFavoritas = mysqli_query($con,$consulta);
 
-if($resultado == false){
-    echo "No hay categorias favoritas. Que te gusta?";
+if($categoriasFavoritas == false){
+    ?> <center> No hay categorias favoritas. <br> Añade una categoria que te guste en el menu de categorias disponibles!</center>; <?php
 } else {
-    while ($reg = mysqli_fetch_assoc($resultado)){
+    while ($reg = mysqli_fetch_assoc($categoriasFavoritas)){
     ?>
         <tr>
             <td><center><?php echo $reg['categoria'] ?></center></td> 
@@ -52,12 +58,13 @@ $resultado = mysqli_query($con,$consulta);
   <div class="container">
     <label for="Categoria"><b>Categorias disponibles</b></label>
     <?php if ($resultado != false) { ?>
-        <select name="Categorias disponibles" required>
+        <select name="categoria" required>
             <option value=""></option>
             <?php while ($reg = mysqli_fetch_array($resultado)) { ?>
             <option value="<?php echo $reg['categoria']; ?>"><?php echo $reg['categoria']; ?></option> <?php //pone que no está definido el array. Revisar el paso por parametro ?>
             <?php }  ?> 
         </select>
+        <input  type="hidden" value = "<?php echo $idContracte?>" name = "idContracte" readonly>
     <?php }  ?>    
     <button type="submit">Añadir</button>
   </div>

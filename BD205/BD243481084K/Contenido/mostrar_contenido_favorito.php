@@ -4,8 +4,9 @@
 <body>
 
 <?php
-$con = mysqli_connect("localhost","root","");
-$db = mysqli_select_db($con,"BD205");
+//$con = mysqli_connect("localhost","root","");
+//$db = mysqli_select_db($con,"BD205");
+include "../../PHP/conexion.php";
 
 $user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
 
