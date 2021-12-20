@@ -54,9 +54,16 @@ while($mostrar=mysqli_fetch_array($resultat)){
     <td><center><?php echo $mostrar['contrasenya'] ?></center></td> 
     <td><center><?php echo $mostrar['nomiLlinatges'] ?></center></td> 
     <td><center><?php echo $mostrar['admin'] ?></center></td> 
-    <td><center><a href="InsercionContenido.php">Modifica</a></center></td> 
-    <td><center><a href="InsercionContenido.php">Elimina</a></center></td> 
-
+    <td><form method="post" action="VisualizarContrato.php">
+                                <input type="hidden" name="nomUsuari" value="<?php echo $mostrar['nomUsuari'];?>">
+                                <center><button type="submit" formaction="VisualizarContrato.php">Modificar</button></center>
+                            </form>
+                        </td>
+    <td><form method="post" action="EliminarUsuario.php">
+                                <input type="hidden" name="nomUsuari" value="<?php echo $mostrar['nomUsuari'];?>">
+                                <center><button type="submit" formaction="EliminarUsuario.php">Eliminar</button></center>
+                            </form>
+                        </td>
 </tr>
 <?php
 }
