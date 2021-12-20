@@ -34,7 +34,7 @@
         $user= $_GET['uname'];
         $sql_edad="SELECT usuari.tipusUsuari FROM usuari WHERE usuari.nomUsuari='".$user."'";
         $edad=mysqli_query($con,$sql_edad);
-        if($edad){
+        if(mysqli_num_rows($edad) > 0){
         $edad=mysqli_fetch_array($edad);
         switch($edad['tipusUsuari']){
             case ">18":
@@ -47,7 +47,7 @@
                             ON contracte.idContracte=contfav.idContracte AND contracte.suscrit=1 AND contracte.nomUsuari='".$user."'";
                 
                 $result=mysqli_query($con,$sql_18);
-                if($result){
+                if(mysqli_num_rows($result) > 0){
                     while($mostrar=mysqli_fetch_array($result)){
         ?>
                         <tr>
@@ -68,7 +68,7 @@
                                 ON contracte.idContracte=contfav.idContracte AND contracte.suscrit=1 AND contracte.nomUsuari='".$user."'";
 
                 $result=mysqli_query($con,$sql_9_18);
-                if($result){
+                if(mysqli_num_rows($result) > 0){
                     while($mostrar=mysqli_fetch_array($result)){
         ?>
                             <tr>
@@ -89,7 +89,7 @@
                             ON contracte.idContracte=contfav.idContracte AND contracte.suscrit=1 AND contracte.nomUsuari='".$user."'";
 
                 $result=mysqli_query($con,$sql_9);
-                if($result){
+                if(mysqli_num_rows($result) > 0){
                     while($mostrar=mysqli_fetch_array($result)){
         ?>
                         <tr>
