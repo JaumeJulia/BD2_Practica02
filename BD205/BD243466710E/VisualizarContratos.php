@@ -57,9 +57,10 @@
             <td><center><?php echo $mostrar['dataAlta'] ?></center></td> 
             <td><center><?php echo $mostrar['suscrit'] ?></center></td>
             <?php 
+            $diff = date_diff($date, $mostrar['dataAlta']);
                 if($mostrar['suscrit'] == 0){
                     if($mostrar['tipusContracte'] == "mensual"){
-                        if(DATEDIFF($date, $mostrar['dataAlta']) > 37){
+                        if($diff->d > 37){
                             ?>
                             <td><form method="post" action="../BD243466710E/eliminar_contrato.php">
                                     <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
@@ -69,7 +70,7 @@
                             <?php
                         }
                     }else if($mostrar['tipusContracte'] == "trimestral"){
-                        if(DATEDIFF($date, $mostrar['dataAlta']) > 97){
+                        if($diff->d > 97){
                             ?>
                             <td><form method="post" action="../BD243466710E/eliminar_contrato.php">
                                     <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
