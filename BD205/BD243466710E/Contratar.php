@@ -19,7 +19,7 @@
     <?php $user= $_GET['uname'];
     echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     echo '<center><H3>Contratos</H3></center><br>';
-
+    $tipusContracteErr = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["tipusContracte"])) {
           $tipusContracteErr = "Es necesario marcar una opcion.";
