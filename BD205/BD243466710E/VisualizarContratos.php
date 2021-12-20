@@ -39,6 +39,7 @@
             <td><b><p style="color:#68b9da">Usuario</p></b></td> 
             <td><b><p style="color:#68b9da">Tipo de Contrato</p></b></td> 
             <td><b><p style="color:#68b9da">Fecha de Alta</p></b></td> 
+            <td><b><p style="color:#68b9da">Fecha de Fin</p></b></td> 
             <td><b><p style="color:#68b9da">Vigencia</p></b></td> 
             <td><b><p style="color:#68b9da">Eliminar Contrato</p></b></td> 
         </tr>
@@ -55,31 +56,20 @@
             <td><center><?php echo $mostrar['nomUsuari'] ?></center></td> 
             <td><center><?php echo $mostrar['tipusContracte'] ?></center></td> 
             <td><center><?php echo $mostrar['dataAlta'] ?></center></td> 
+            <td><center><?php echo $mostrar['dataFinal'] ?></center></td> 
             <td><center><?php echo $mostrar['suscrit'] ?></center></td>
             <?php 
-            $diff = date_diff($date, $mostrar['dataAlta']);
+            $diff = date_diff($date, $mostrar['dataFinal']);
                 if($mostrar['suscrit'] == 0){
-                    if($mostrar['tipusContracte'] == "mensual"){
-                        if($diff->d > 37){
-                            ?>
-                            <td><form method="post" action="../BD243466710E/eliminar_contrato.php">
-                                    <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
-                                    <center><button type="submit" formaction="../BD243466710E/eliminar_contrato.php">Eliminar</button></center>
-                                    </form>
-                            </td>
-                            <?php
-                        }
-                    }else if($mostrar['tipusContracte'] == "trimestral"){
-                        if($diff->d > 97){
-                            ?>
-                            <td><form method="post" action="../BD243466710E/eliminar_contrato.php">
-                                    <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
-                                    <center><button type="submit" formaction="../BD243466710E/eliminar_contrato.php">Eliminar</button></center>
-                                    </form>
-                            </td>
-                            <?php
-                        }
-                }
+                    if($diff->d > 7){
+                        ?>
+                        <td><form method="post" action="../BD243466710E/eliminar_contrato.php">
+                                <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
+                                <center><button type="submit" formaction="../BD243466710E/eliminar_contrato.php">Eliminar</button></center>
+                            </form>
+                        </td>
+                        <?php
+                    } 
             }
             ?>
         </tr>
