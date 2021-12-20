@@ -12,7 +12,7 @@
         margin-left: auto;
         margin-right: auto;
     }
-    .error {color: #FF0000;}
+
     </style>
 <head>
 <body>
@@ -39,11 +39,9 @@
             ?>
             <form method="post" action ="actualizaContrato.php">
             Tipo de Contrato:
-                <input type="radio" name="tipusContracte" value="mensual">Mensual
+                <input type="radio" name="tipusContracte" value="mensual" checked>Mensual
                 <input type="radio" name="tipusContracte" value="trimestral">Trimestral
                 <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
-                <span class="error">* <?php echo $tipusContracteErr;?></span>
-                <br><br>
                 <input type="submit" name="Aceptar" value="Aceptar"> 
             </form> 
             <?php
@@ -53,11 +51,9 @@
         ?>
             <form method="post" action ="creaContrato.php">
             Tipo de Contrato:
-                <input type="radio" name="tipusContracte" value="mensual" <?php echo ($_SESSION['tipusContracte'] != "trimestral") ? 'checked="checked"' : ''; ?>>Mensual
-                <input type="radio" name="tipusContracte" value="trimestral" <?php echo ($_SESSION['tipusContracte'] == "trimestral") ? 'checked="checked"' : ''; ?>>Trimestral
+                <input type="radio" name="tipusContracte" value="mensual" checked>Mensual
+                <input type="radio" name="tipusContracte" value="trimestral">Trimestral
                 <input type="hidden" name="usuari" value="<?php echo $user;?>">
-                <span class="error">* <?php echo $tipusContracteErr;?></span>
-                <br><br>
                 <input type="submit" name="Aceptar" value="Aceptar"> 
             </form> 
             <?php
