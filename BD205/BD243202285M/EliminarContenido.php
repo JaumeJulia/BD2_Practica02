@@ -24,7 +24,7 @@
             }
         }
 
-        $recomanat = 'SELECT * FROM recomanat WHERE contracte.video = "'.$vid.'"'; //sacamos los contenidos favoritos asociados al contrato
+        $recomanat = 'SELECT * FROM recomanat WHERE recomanat.video = "'.$vid.'"'; //sacamos los contenidos favoritos asociados al contrato
         $rec = mysqli_query($con, $recomanat);
 
         if(mysqli_num_rows($rec) > 0){
@@ -35,7 +35,7 @@
         }
 
       
-        $consulta = 'DELETE from contingut where contingut.video = "'.$video.'"';
+        $consulta = 'DELETE FROM contingut WHERE contingut.video = "'.$vid.'"';
         $resultado = mysqli_query($con,$consulta);
 
         include "VisualizacionContenidos.php";

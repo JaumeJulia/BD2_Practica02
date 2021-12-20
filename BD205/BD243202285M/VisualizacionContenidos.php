@@ -28,7 +28,7 @@ body {font-family: Arial, Helvetica, sans-serif;
 <?php
 include "../PHP/conexion.php";
 
-$cadena = "select * from contingut";
+$cadena = "select * from contingut ORDER BY contingut.titol";
 $resultat = mysqli_query($con,$cadena);
 ?>´
 <center><H3><p style="color:#ffff80">Tabla de Contenidos</p></H3></center>
@@ -51,14 +51,14 @@ while($mostrar=mysqli_fetch_array($resultat)){
     <td><center><?php echo $mostrar['titol'] ?></center></td> 
     <td><center><?php echo $mostrar['video'] ?></center></td> 
     <td><center><?php echo $mostrar['dataIntroduit'] ?></center></td> 
-    <td><form method="post" action="VisualizarContrato.php">
+    <td><form method="post" action="ModificarContenido.php">
                                 <input type="hidden" name="nomUsuari" value="<?php echo $mostrar['nomUsuari'];?>">
-                                <center><button type="submit" formaction="VisualizarContrato.php">Modificar</button></center>
+                                <center><button type="submit" formaction="ModificarContenido.php">Modificar</button></center>
                             </form>
                         </td>
-    <td><form method="post" action="EliminarContrato.php">
-                                <input type="hidden" name="nomUsuari" value="<?php echo $mostrar['video'];?>">
-                                <center><button type="submit" formaction="EliminarUsuario.php">Eliminar</button></center>
+    <td><form method="post" action="EliminarContenido.php">
+                                <input type="hidden" name="video" value=<?php echo $mostrar['video'];?>
+                                <center><button type="submit" formaction="EliminarContenido.php">Eliminar</button></center>
                             </form>
                         </td> 
 
