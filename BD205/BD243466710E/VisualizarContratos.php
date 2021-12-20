@@ -3,9 +3,16 @@
 <head>
     <title>Contratos</title>
 <style>
+ body {font-family: Arial, Helvetica, sans-serif;
+        background-color: pink;
+    }
+.container {
+     padding: 16px;
+     background-color: #99d8ea;
+    }
     table, th, td {
         border: 2px solid pink;
-        background-color: #68b9da;
+        background-color: #ffff80;
         
     }
     table.center{
@@ -17,8 +24,11 @@
 
 <head>
 <body>
-
-    <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    
+<div class="container">
+       <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+<div class="container">
+   
 
 <center><H3>Tabla de Contratos</H3></center>
 <br>

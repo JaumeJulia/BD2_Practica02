@@ -55,7 +55,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 <form action="adminInsertUsuario.php" method="post">
   <div class="container">
-  <center><a href="../PHP/Admin.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>
+  <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     <h2><center>Creacion de Usuario</center></h2>
     <hr>
 

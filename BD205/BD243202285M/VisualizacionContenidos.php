@@ -21,7 +21,7 @@ body {font-family: Arial, Helvetica, sans-serif;
 
 </style>
 <div class="container">
-<center><a href="../PHP/Admin.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>
+<center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
 <div class="container">
 <br>
 
