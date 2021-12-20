@@ -19,12 +19,6 @@
     <?php $user= $_GET['uname'];
     echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     echo '<center><H3>Contratos</H3></center><br>';
-    $tipusContracteErr = "Este campo es obligatorio";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (empty($_POST["tipusContracte"])) {
-          $tipusContracteErr = "Es necesario marcar una opcion.";
-        }
-    }
     include "../PHP/conexion.php";
 
     $consultaContratoUsuario = 'SELECT contracte.suscrit, contracte.dataFinal FROM contracte WHERE contracte.nomUsuari = "'.$user.'"'; //sacamos el contrato del usuario si existe
@@ -37,25 +31,25 @@
             echo 'Su contrato sige vigente. Caduca en '.$diff->d. ' dias.';
         }else{
             ?>
-            <form method="post" action ="actualizaContrato.php">
+            <center><form method="post" action ="actualizaContrato.php">
             Tipo de Contrato:
                 <input type="radio" name="tipusContracte" value="mensual" checked>Mensual
                 <input type="radio" name="tipusContracte" value="trimestral">Trimestral
                 <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
                 <input type="submit" name="Aceptar" value="Aceptar"> 
-            </form> 
+            </form></center> 
             <?php
         }
 
     }else{
         ?>
-            <form method="post" action ="creaContrato.php">
+            <center><form method="post" action ="creaContrato.php">
             Tipo de Contrato:
                 <input type="radio" name="tipusContracte" value="mensual" checked>Mensual
                 <input type="radio" name="tipusContracte" value="trimestral">Trimestral
                 <input type="hidden" name="usuari" value="<?php echo $user;?>">
                 <input type="submit" name="Aceptar" value="Aceptar"> 
-            </form> 
+            </form></center>
             <?php
     }
         
