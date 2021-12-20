@@ -19,7 +19,7 @@
     <?php $user= $_GET['uname'];
     echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     echo '<center><H3>Contratos</H3></center><br>';
-    $tipusContracteErr = "";
+    $tipusContracteErr = "Este campo es obligatorio";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["tipusContracte"])) {
           $tipusContracteErr = "Es necesario marcar una opcion.";
@@ -53,8 +53,8 @@
         ?>
             <form method="post" action ="creaContrato.php">
             Tipo de Contrato:
-                <input type="radio" name="tipusContracte" value="mensual">Mensual
-                <input type="radio" name="tipusContracte" value="trimestral">Trimestral
+                <input type="radio" name="tipusContracte" value="mensual" <?php echo ($_SESSION['tipusContracte'] != "trimestral") ? 'checked="checked"' : ''; ?>>Mensual
+                <input type="radio" name="tipusContracte" value="trimestral" <?php echo ($_SESSION['tipusContracte'] == "trimestral") ? 'checked="checked"' : ''; ?>>Trimestral
                 <input type="hidden" name="usuari" value="<?php echo $user;?>">
                 <span class="error">* <?php echo $tipusContracteErr;?></span>
                 <br><br>
