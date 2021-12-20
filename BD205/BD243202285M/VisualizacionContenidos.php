@@ -30,7 +30,8 @@ include "../PHP/conexion.php";
 
 $cadena = "select * from contingut";
 $resultat = mysqli_query($con,$cadena);
-?>
+?>´
+<center><H3><p style="color:#ffff80">Tabla de Contenidos</p></H3></center>
 <table align="center" class="center">
 <tr>
     <td><center><b><p style="color:#68b9da">Categoria</p></b></center></td> 
