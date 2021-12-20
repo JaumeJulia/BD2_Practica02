@@ -46,7 +46,7 @@
         <?php 
         include "../PHP/conexion.php";
         $sql="SELECT * from Contracte";
-        $date = date('y-m-d');
+        $date = date_create_from_format('Y-m-d', date('Y-m-d'));
         $result=mysqli_query($con,$sql);
 
         while($mostrar=mysqli_fetch_array($result)){
@@ -59,7 +59,7 @@
             <td><center><?php echo $mostrar['dataFinal'] ?></center></td> 
             <td><center><?php echo $mostrar['suscrit'] ?></center></td>
             <?php 
-            $diff = date_diff($date, $mostrar['dataFinal']);
+            $diff = date_diff($date,date_create($mostrar['dataFinal']));
                 if($mostrar['suscrit'] == 0){
                     if($diff->d > 7){
                         ?>
