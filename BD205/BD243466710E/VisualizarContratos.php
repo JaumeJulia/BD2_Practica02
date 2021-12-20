@@ -63,9 +63,9 @@
                 if($mostrar['suscrit'] == 0){
                     if($diff->d > 7){
                         ?>
-                        <td><form method="post" action="../BD243466710E/eliminar_contrato.php">
+                        <td><form method="post" action="eliminar_contrato.php">
                                 <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
-                                <center><button type="submit" formaction="../BD243466710E/eliminar_contrato.php">Eliminar</button></center>
+                                <center><button type="submit" formaction="eliminar_contrato.php">Eliminar</button></center>
                             </form>
                         </td>
                         <?php
