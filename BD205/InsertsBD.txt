@@ -1,0 +1,22 @@
+INSERT INTO tipus_usuari VALUES ("<9");
+INSERT INTO tipus_usuari VALUES ("9-18");
+INSERT INTO tipus_usuari VALUES (">18");
+
+INSERT INTO usuari VALUES ("Admin01",">18","123","Pau Jaume Alejandro Alberto",TRUE);
+
+INSERT INTO tipus_contracte VALUES ("mensual"),("trimestral");
+
+
+[INSERTS]
+
+INSERT contracte VALUES ('1', 'Usuario01', 'mensual', '2021-12-20', '2021-12-20', 'FALSE');
+INSERT contracte VALUES ('2', 'Usuario02', 'mensual', '2021-12-20', '2020-12-5', 'FALSE');
+INSERT contracte VALUES ('3', 'Usuario03', 'trimestral', '2021-12-20', '2022-07-30', 'FALSE');
+INSERT contracte VALUES ('4', 'Usuario04', 'mensual', '2021-12-20', '2022-03-20', 'FALSE');
+INSERT contracte VALUES ('5', 'Usuario05', 'trimestral', '2021-12-20', '2021-10-20', 'FALSE');
+
+INSERT usuari VALUES ('Usuario01', '9-18', '123', 'NombreApellidos01', 'FALSE');
+INSERT usuari VALUES ('Usuario02', '<9', '123', 'NombreApellidos02', 'FALSE');
+INSERT usuari VALUES ('Usuario03', '>18', '123', 'NombreApellidos03', 'FALSE');
+INSERT usuari VALUES ('Usuario04', '9-18', '123', 'NombreApellidos04', 'FALSE');
+INSERT usuari VALUES ('Usuario05', '<9', '123', 'NombreApellidos05', 'FALSE');
