@@ -49,7 +49,7 @@
                                     ON contracte.idContracte = catfav.idContracte";                                   
 
                 $result=mysqli_query($con,$sql_18);
-                if((mysqli_num_rows($result) > 0){
+                if(mysqli_num_rows($result) > 0){
                     while($mostrar=mysqli_fetch_array($result)){
                     ?>
                                     <tr>
@@ -71,7 +71,7 @@
                                                 ON contracte.idContracte = catfav.idContracte";  
             
                             $result=mysqli_query($con,$sql_9_18);
-                                if((mysqli_num_rows($result) > 0){
+                                if(mysqli_num_rows($result) > 0){
                                 while($mostrar=mysqli_fetch_array($result)){
                                     ?>
                                         <tr>
@@ -93,7 +93,7 @@
                                                     ON contracte.idContracte = catfav.idContracte";  
             
                             $result=mysqli_query($con,$sql_9);
-                                if((mysqli_num_rows($result) > 0){
+                                if(mysqli_num_rows($result) > 0){
                                 while($mostrar=mysqli_fetch_array($result)){
                     ?>
                                     <tr>
