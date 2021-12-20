@@ -18,7 +18,7 @@
 <body>
     <?php $user= $_GET['uname'];
     echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
-    echo '<center><H3>Contratos</H3></center><br>'
+    echo '<center><H3>Contratos</H3></center><br>';
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["tipusContracte"])) {
@@ -29,7 +29,7 @@
 
     $consultaContratoUsuario = 'SELECT contracte.suscrit, contracte.dataFinal FROM contracte WHERE contracte.nomUsuari = "'.$user.'"'; //sacamos el contrato del usuario si existe
     $contrato = mysqli_query($con, $consultaContratoUsuario);
-    if($contrato){
+    if(mysqli_num_rows($contrato) > 0){
         $mostrar=mysqli_fetch_array($contrato);
         if($mostrar['suscrit'] == 1){
             $date = date_create_from_format('Y-m-d', date('Y-m-d'));

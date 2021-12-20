@@ -52,6 +52,8 @@ $consultar_contenido_completo = '<a href="../BD243466710E/ConsultarContenidoComp
 $consultar_contenido_catfav = '<a href="../BD243466710E/ConsultarContenidoCatfav.php?uname='.$usuario.'" class="button button3"style="font-size:20px" >Ver Contenidos de las Categorias Favoritas</a>';
 $consultar_categorias_favoritas = '<a href="../BD243481084K/Categoria/mostrar_categoria_favorita.php?uname='.$usuario.'" class="button button1"style="font-size:20px" >Administrar Categorias Favoritas</a>';
 $consultar_contenidos_favoritos = '<a href="../BD243481084K/Contenido/mostrar_contenido_favorito.php?uname='.$usuario.'" class="button button3"style="font-size:20px" >Administrar Contenido Favorito</a>';
+$contratar = '<a href="../BD243466710E/Contratar.php?uname='.$usuario.'" class="button button3"style="font-size:20px" >Administrar Contrato</a>';
+
 echo "<table align='center'>";
     echo "<tr><td>".$consulta_recomendados. "</td></tr>";
     echo "<tr><td>".$visualizar_facturas."</td></tr>";
@@ -59,6 +61,7 @@ echo "<table align='center'>";
     echo "<tr><td>".$consultar_contenido_catfav."</td></tr>";
     echo "<tr><td>".$consultar_categorias_favoritas."</td></tr>";
     echo "<tr><td>".$consultar_contenidos_favoritos."</td></tr>";
+    echo "<tr><td>".$contratar."</td></tr>";
 echo "</table>";
 ?>
 </body>
