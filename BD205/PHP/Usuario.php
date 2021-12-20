@@ -48,17 +48,19 @@ if(!array_key_exists('uname', $_POST)){
 }
 
 include "conexion.php";
-$sql_contrato="SELECT contracte.suscrit FROM contracte WHERE contracte.nomUsuari='".$user."'";
+$sql_contrato="SELECT contracte.suscrit FROM contracte WHERE contracte.nomUsuari='".$usuario."'";
 $suscrit=mysqli_query($con,$sql_contrato);
 if(mysqli_num_rows($suscrit) > 0){
     $suscrit=mysqli_fetch_array($suscrit);
+}else{
+  $suscrit=NULL;
 }
 
 $consulta_recomendados = '<a href="../BD243220819R/ConsultarRecomanats.php?uname='.$usuario.'" class="button button1"style="font-size:20px" >Consultar Recomendados</a>';
 $visualizar_facturas = '<a href="../BD243220819R/Visualizartabla.php?uname='.$usuario.'" class="button button2"style="font-size:20px" >Visualizar Facturas</a>';
 $consultar_contenido_completo = '<a href="../BD243466710E/ConsultarContenidoCompleto.php?uname='.$usuario.'" class="button button3"style="font-size:20px" >Ver Contenidos</a>';
 
-if($suscrit['suscrit'] == 1){
+if($suscrit!=NULL && $suscrit['suscrit'] == 1){
   $consultar_contenido_catfav = '<a href="../BD243466710E/ConsultarContenidoCatfav.php?uname='.$usuario.'" class="button button3"style="font-size:20px" >Ver Contenidos de las Categorias Favoritas</a>';
   $consultar_contenido_contfav = '<a href="../BD243466710E/ConsultarContenidoFavorito.php?uname='.$usuario.'" class="button button3"style="font-size:20px" >Ver Contenidos Favoritos</a>';  
 }
@@ -71,7 +73,7 @@ echo "<table align='center'>";
     echo "<tr><td>".$consulta_recomendados. "</td></tr>";
     echo "<tr><td>".$visualizar_facturas."</td></tr>";
     echo "<tr><td>".$consultar_contenido_completo."</td></tr>";
-    if($suscrit['suscrit'] == 1){
+    if($suscrit!=NULL && $suscrit['suscrit'] == 1){
       echo "<tr><td>".$consultar_contenido_catfav."</td></tr>";
       echo "<tr><td>".$consultar_contenido_contfav."</td></tr>";
     }
