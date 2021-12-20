@@ -37,7 +37,7 @@
         $sql="SELECT * from Contracte INNER JOIN Factura on Contracte.idContracte = Factura.idContracte WHERE Contracte.nomUsuari='".$user."'";
         
         $result=mysqli_query($con,$sql);
-    if($result){
+    if((mysqli_num_rows($result) > 0){
         while($mostrar=mysqli_fetch_array($result)){
         ?>
             <tr>

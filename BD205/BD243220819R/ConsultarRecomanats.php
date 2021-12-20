@@ -49,8 +49,8 @@
                                     ON contracte.idContracte = catfav.idContracte";                                   
 
                 $result=mysqli_query($con,$sql_18);
-                
-                while($mostrar=mysqli_fetch_array($result)){
+                if((mysqli_num_rows($result) > 0){
+                    while($mostrar=mysqli_fetch_array($result)){
                     ?>
                                     <tr>
                                         <td><center><?php echo $mostrar['titol'] ?></center></td> 
@@ -59,6 +59,7 @@
                                     </tr>
                                     <?php
                                 }
+                            }
                         case "9-18":
                             $sql_9_18="SELECT contingut.titol,contingut.categoria,contingut.video from contracte INNER JOIN (
                                         catfav INNER JOIN( 
@@ -70,7 +71,7 @@
                                                 ON contracte.idContracte = catfav.idContracte";  
             
                             $result=mysqli_query($con,$sql_9_18);
-                                if($result){
+                                if((mysqli_num_rows($result) > 0){
                                 while($mostrar=mysqli_fetch_array($result)){
                                     ?>
                                         <tr>
@@ -92,7 +93,7 @@
                                                     ON contracte.idContracte = catfav.idContracte";  
             
                             $result=mysqli_query($con,$sql_9);
-                                if($result){
+                                if((mysqli_num_rows($result) > 0){
                                 while($mostrar=mysqli_fetch_array($result)){
                     ?>
                                     <tr>
