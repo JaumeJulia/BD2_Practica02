@@ -30,16 +30,17 @@ if (mysqli_num_rows($result) > 0){
 
     if($row[0]==1){
 
-        include "admin.html";
+        include "Admin.php";
 
     }else{
-
-        echo("Eres no ADMIN");
+        
+        include "Usuario.php";
+   
     }
   
 }else{
 
-    include "index.html";
+    include "../index.html";
 
     echo('<span style="color: red;" /><center> Usuario o contraseña incorrectos </center></span>');
 

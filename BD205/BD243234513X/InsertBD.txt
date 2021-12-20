@@ -1,0 +1,5 @@
+INSERT INTO tipus_usuari VALUES ("<9");
+INSERT INTO tipus_usuari VALUES ("9-18");
+INSERT INTO tipus_usuari VALUES (">18");
+INSERT INTO usuari VALUES ("ChuckNorris68",">18","co","Pau Capella Ballester",TRUE);
+INSERT INTO tipus_contracte VALUES ("mensual"),("trimestral");
