@@ -3,7 +3,7 @@
     <body>
         
     <?php
-        include "../../PHP/conexion.php";
+        include "../PHP/conexion.php";
         $idContracte = $_POST['idContracte'];
 
         $consultaFacturas = 'SELECT idFactura FROM factura WHERE factura.idContracte = "'.$idContracte.'"'; //sacamos las facturas asociadas al contrato
@@ -33,6 +33,7 @@
         $consulta = 'DELETE from contracte where contracte.idContracte = "'.$idContracte.'"';
 
         $resultado = mysqli_query($con,$consulta);
+        include "VisualizarContratos.php";
     ?>
 </body>
 </html>
