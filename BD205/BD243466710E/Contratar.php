@@ -48,7 +48,7 @@
             Tipo de Contrato:
                 <input type="radio" name="tipusContracte" value="mensual" checked>Mensual
                 <input type="radio" name="tipusContracte" value="trimestral">Trimestral
-                <input type="hidden" name="usuari" value="<?php echo $user;?>">
+                <input type="hidden" name="uname" value="<?php echo $user;?>">
                 <input type="submit" name="Aceptar" value="Aceptar"> 
             </form></center>
             <?php
