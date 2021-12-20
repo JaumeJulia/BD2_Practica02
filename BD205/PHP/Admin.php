@@ -68,7 +68,7 @@
 
     <form action="../BD243466710E/VisualizarContratos.php" method="post">
     <div class="container">
-    <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Tabla Contenidos</button></center>
+    <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Tabla Contratos</button></center>
     </form>
   </div>
 </table>

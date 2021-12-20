@@ -24,23 +24,23 @@
 
 <head>
 <body>
-    
+
 <div class="container">
        <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
 <div class="container">
    
 
-<center><H3>Tabla de Contratos</H3></center>
+<center><H3><p style="color:#ffff80">Tabla de Contratos</p></H3></center>
 <br>
 <br>
     <table class="center">
         <tr>
-            <td><b><p style="color:black">ID del Contrato</p></b></td> 
-            <td><b><p style="color:black">Usuario</p></b></td> 
-            <td><b><p style="color:black">Tipo de Contrato</p></b></td> 
-            <td><b><p style="color:black">Fecha de Alta</p></b></td> 
-            <td><b><p style="color:black">Vigencia</p></b></td> 
-            <td><b><p style="color:black">Eliminar Contrato</p></b></td> 
+            <td><b><p style="color:#68b9da">ID del Contrato</p></b></td> 
+            <td><b><p style="color:#68b9da">Usuario</p></b></td> 
+            <td><b><p style="color:#68b9da">Tipo de Contrato</p></b></td> 
+            <td><b><p style="color:#68b9da">Fecha de Alta</p></b></td> 
+            <td><b><p style="color:#68b9da">Vigencia</p></b></td> 
+            <td><b><p style="color:#68b9da">Eliminar Contrato</p></b></td> 
         </tr>
         <?php 
         include "../PHP/conexion.php";

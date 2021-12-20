@@ -31,7 +31,7 @@ include "../PHP/conexion.php";
 $cadena = "select * from usuari";
 $resultat = mysqli_query($con,$cadena);
 ?>
-<center><H3><p style="color:#ffff80">Tabla de Contenidos</p></H3></center>
+<center><H3><p style="color:#ffff80">Tabla de Usuarios</p></H3></center>
 
 <table align="center" class="center">
 <tr>
