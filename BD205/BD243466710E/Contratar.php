@@ -24,7 +24,7 @@
 
     $consultaContratoUsuario = 'SELECT contracte.suscrit, contracte.dataFinal FROM contracte WHERE contracte.nomUsuari = "'.$user.'"'; //sacamos el contrato del usuario si existe
     $contrato = mysqli_query($con, $consultaContratoUsuario);
-    if(mysqli_num_rows($contrato) > 0){
+    if(!empty($contrato) && mysqli_num_rows($contrato) > 0){
         $mostrar=mysqli_fetch_array($contrato);
         if($mostrar['suscrit'] == 1){
             $date = date_create_from_format('Y-m-d', date('Y-m-d'));
@@ -48,7 +48,7 @@
             Tipo de Contrato:
                 <input type="radio" name="tipusContracte" value="mensual" checked>Mensual
                 <input type="radio" name="tipusContracte" value="trimestral">Trimestral
-                <input type="hidden" name="usuari" value="<?php echo $user;?>">
+                <input type="hidden" name="uname" value="<?php echo $user;?>">
                 <input type="submit" name="Aceptar" value="Aceptar"> 
             </form></center>
             <?php
