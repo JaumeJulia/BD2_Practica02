@@ -1,13 +1,16 @@
 <?php
-//$con = mysqli_connect("localhost","root","");
-//$db = mysqli_select_db($con,"BD205");
 include "../../PHP/conexion.php";
-$eliminar = $_POST['categoria'];
+$eliminar = $_POST['video'];
+$user = $_POST['uname'];
+$consultaContracte = 'SELECT idContracte FROM contracte WHERE contracte.nomUsuari = "'.$user.'"'; //sacamos el contrato del usuario
+$contestacioContracte = mysqli_query($con, $consultaContracte);
+$arrayContracte = mysqli_fetch_array($contestacioContracte);
+$idContracte = $arrayContracte['idContracte'];
 
-$consulta = 'DELETE from CONTFAV where CONTFAV.idContingut = "'.$eliminar.'"';
+$consulta = 'DELETE from CONTFAV where CONTFAV.idContracte = "'.$idContracte.'" AND CONTFAV.video = "'.$eliminar.'"';
 
 $resultado = mysqli_query($con,$consulta);
 
-mysqli_close($con);
+include "mostrar_contenido_favorito.php";
 
 ?>
