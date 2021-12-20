@@ -2,9 +2,6 @@
 $usuari= $_POST['usuari'];  //Hacer un SELECT con el nombre de usuario para sacar el idContracte
 $video = $_POST['video'];
 
-//$con = mysqli_connect("localhost","root",""); 
-//$db = mysqli_select_db($con,"BD205");
-
 include "../../PHP/conexion.php";
 
 $consulta = 'SELECT idContracte from CONTRACTE where nomUsuari = "'.$usuari.'"';

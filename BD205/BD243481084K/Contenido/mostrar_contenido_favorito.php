@@ -4,25 +4,25 @@
 <body>
 
 <?php
-//$con = mysqli_connect("localhost","root","");
-//$db = mysqli_select_db($con,"BD205");
 include "../../PHP/conexion.php";
 
-$user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
+if (array_key_exists('uname',$_GET)){
+    $user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
+}
 
-$consulta = 'SELECT idContingut, categoria, titol, video from 
+$consulta = 'SELECT contingut.categoria, titol, contingut.video from 
                 ( CONTRACTE INNER JOIN CONTFAV ON
-                contracte.nomUsuari = '.$user.'
+                contracte.nomUsuari = "'.$user.'"
                 AND contracte.idContracte = contfav.idContracte
                 ) INNER JOIN CONTINGUT ON
-                CONTFAV.idContingut = CONTINGUT.contingut'; 
+                CONTFAV.video = CONTINGUT.video'; 
 
-$resultado = mysqli_query($con,$consulta);
+$contenidoFavorito = mysqli_query($con,$consulta);
 
-if($resultado == false){
+if($contenidoFavorito == false){
     echo "No hay contenido favorito. Prueba a agregar algunos videos que te gusten!";
 } else {
-    while ($reg = mysqli_fetch_array($resultado)){
+    while ($reg = mysqli_fetch_array($contenidoFavorito)){
     ?>
         <tr>
             <td><center><?php echo $mostrar['idContingut'] ?></center></td> 
@@ -35,9 +35,26 @@ if($resultado == false){
     }
 }
 
-mysqli_close($con);
-
+$contenidoFavorito = mysqli_query($con,$consulta);
 ?>
+
+<form action="eliminar_contenido_favorito.php" method="post">
+  <div class="container">
+    <label for="Contenido"><b>Eliminar contenido favorito</b></label>
+    <?php if ($contenidoFavorito != false) { ?>
+        <select name="video" required>
+            <option value=""></option>
+            <?php while ($reg = mysqli_fetch_array($contenidoFavorito)) { //muestra en una lista las categorias no favoritas para poder ser seleccionadas y agregadas?>
+            <option value="<?php echo $reg['video']; ?>"><?php echo $reg['titol'].", url: ".$reg['video']; ?></option>
+            <?php }  ?> 
+        </select>
+        <input  type="hidden" value = "<?php echo $user?>" name = "uname" readonly> <?php //se pasa el usuario en oculto a través de post
+    }  ?>    
+    <button type="submit">Eliminar</button>
+  </div>
+</form>
+
+<?php mysqli_close($con); ?>
 
 </body>
 </html>
