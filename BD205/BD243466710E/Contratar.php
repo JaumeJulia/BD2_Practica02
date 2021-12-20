@@ -19,6 +19,7 @@
     <?php $user= $_GET['uname'];
     echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     echo '<center><H3>Contratos</H3></center><br>';
+
     include "../PHP/conexion.php";
 
     $consultaContratoUsuario = 'SELECT contracte.suscrit, contracte.dataFinal FROM contracte WHERE contracte.nomUsuari = "'.$user.'"'; //sacamos el contrato del usuario si existe
@@ -37,7 +38,7 @@
                 <input type="radio" name="tipusContracte" value="trimestral">Trimestral
                 <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
                 <input type="submit" name="Aceptar" value="Aceptar"> 
-            </form></center> 
+            </form></center>
             <?php
         }
 
