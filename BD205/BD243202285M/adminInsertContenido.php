@@ -14,7 +14,7 @@ while (!isset($_SESSION)) {
 
     $tit= $_POST['titulo'];
 
-    $vid= '<iframe width="560" height="315" src="'.$_POST['video'].'"title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    $vid= .$_POST['video'];
 
     $date= $_POST['fecha'];
       
