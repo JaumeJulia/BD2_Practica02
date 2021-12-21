@@ -1,5 +1,7 @@
 <?php 
+if (!isset($_SESSION['user'])){
     session_start();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,11 +24,10 @@
 <body>
     <?php 
     
-    if (array_key_exists('uname',$_GET)){
-        $user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
-    }
+    $user = $_SESSION['user']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
+    
     ?>
-<center><a href="../../PHP/Usuario.php?uname=<?php echo $user ?>"><img src="../../Images/Notflix.PNG" width="300"></a></center>
+<center><a href="../../PHP/Usuario.php"><img src="../../Images/Notflix.PNG" width="300"></a></center>
 <center><H3>Contenidos favoritos</H3></center>
     <br>
 
@@ -81,8 +82,7 @@ $contenidoFavorito = mysqli_query($con,$consulta);
             <option value="<?php echo $reg['video']; ?>"><?php echo $reg['titol'].", url: ".$reg['video']; ?></option>
             <?php }  ?> 
         </select>
-        <input  type="hidden" value = "<?php echo $user?>" name = "uname" readonly> <?php //se pasa el usuario en oculto a través de post
-    }  ?>    
+    <?php }  ?>    
     <button type="submit">Eliminar</button>
   </div>
 </form>

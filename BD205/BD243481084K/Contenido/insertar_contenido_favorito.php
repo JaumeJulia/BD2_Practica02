@@ -1,10 +1,11 @@
 <?php
-$usuari= $_POST['usuari'];  //Hacer un SELECT con el nombre de usuario para sacar el idContracte
+session_start();
+$user= $_SESSION['user'];  //Hacer un SELECT con el nombre de usuario para sacar el idContracte
 $video = $_POST['video'];
 
 include "../../PHP/conexion.php";
 
-$consulta = 'SELECT idContracte from CONTRACTE where nomUsuari = "'.$usuari.'"';
+$consulta = 'SELECT idContracte from CONTRACTE where nomUsuari = "'.$user.'"';
 $idContracte = mysqli_query($con, $consulta);
 $idContracte = mysqli_fetch_array($idContracte);
 $idContracte = $idContracte['idContracte'];
