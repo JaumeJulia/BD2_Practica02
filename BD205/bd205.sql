@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-12-2021 a las 17:10:26
+-- Tiempo de generación: 21-12-2021 a las 14:01:56
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.3
 
@@ -36,9 +36,6 @@ CREATE TABLE `categoria` (
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`categoria`) VALUES
-('comedia'),
-('drama');
 
 -- --------------------------------------------------------
 
@@ -55,8 +52,6 @@ CREATE TABLE `catfav` (
 -- Volcado de datos para la tabla `catfav`
 --
 
-INSERT INTO `catfav` (`idContracte`, `categoria`) VALUES
-(1, 'drama');
 
 -- --------------------------------------------------------
 
@@ -82,16 +77,6 @@ CREATE TABLE `contingut` (
   `dataIntroduit` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `contingut`
---
-
-INSERT INTO `contingut` (`categoria`, `titol`, `video`, `dataIntroduit`) VALUES
-('drama', 'olaMundo', 'mi video', '2021-12-15'),
-('drama', 'olaMundo2', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/hw1cCXHibEM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '2021-12-09'),
-('drama', 'olaMundo3', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '2021-12-15'),
-('comedia', 'olaMundo4', 'mi video4', '2021-12-15');
-
 -- --------------------------------------------------------
 
 --
@@ -102,7 +87,8 @@ CREATE TABLE `contracte` (
   `idContracte` int(9) NOT NULL,
   `nomUsuari` char(30) NOT NULL,
   `tipusContracte` char(10) NOT NULL,
-  `dataAlta` datetime NOT NULL,
+  `dataAlta` date NOT NULL,
+  `dataFinal` date NOT NULL,
   `suscrit` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -110,8 +96,6 @@ CREATE TABLE `contracte` (
 -- Volcado de datos para la tabla `contracte`
 --
 
-INSERT INTO `contracte` (`idContracte`, `nomUsuari`, `tipusContracte`, `dataAlta`, `suscrit`) VALUES
-(1, 'mm', 'mensual', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -125,14 +109,6 @@ CREATE TABLE `factura` (
   `data` datetime NOT NULL,
   `import` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `factura`
---
-
-INSERT INTO `factura` (`idFactura`, `idContracte`, `data`, `import`) VALUES
-(1, 1, '0000-00-00 00:00:00', 100),
-(2, 1, '0000-00-00 00:00:00', 200);
 
 -- --------------------------------------------------------
 
@@ -159,15 +135,6 @@ CREATE TABLE `recomanat` (
   `video` char(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `recomanat`
---
-
-INSERT INTO `recomanat` (`tipusUsuari`, `video`) VALUES
-('<9', 'mi cola en tu boca'),
-('>18', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/hw1cCXHibEM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>'),
-('>18', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>');
-
 -- --------------------------------------------------------
 
 --
@@ -182,9 +149,7 @@ CREATE TABLE `tipus_contracte` (
 -- Volcado de datos para la tabla `tipus_contracte`
 --
 
-INSERT INTO `tipus_contracte` (`tipusContracte`) VALUES
-('mensual'),
-('trimestral');
+
 
 -- --------------------------------------------------------
 
@@ -200,10 +165,6 @@ CREATE TABLE `tipus_usuari` (
 -- Volcado de datos para la tabla `tipus_usuari`
 --
 
-INSERT INTO `tipus_usuari` (`tipusUsuari`) VALUES
-('9-18'),
-('<9'),
-('>18');
 
 -- --------------------------------------------------------
 
@@ -223,9 +184,7 @@ CREATE TABLE `usuari` (
 -- Volcado de datos para la tabla `usuari`
 --
 
-INSERT INTO `usuari` (`nomUsuari`, `tipusUsuari`, `contrasenya`, `nomiLlinatges`, `admin`) VALUES
-('ChuckNorris68', '>18', 'co', 'Pau Capella Ballester', 1),
-('mm', '>18', 'n', 'Juan N M', 0);
+
 
 --
 -- Índices para tablas volcadas
@@ -285,7 +244,7 @@ ALTER TABLE `missatge`
 -- Indices de la tabla `recomanat`
 --
 ALTER TABLE `recomanat`
-  ADD PRIMARY KEY (`tipusUsuari`, `video`);
+  ADD PRIMARY KEY (`tipusUsuari`,`video`);
 
 --
 -- Indices de la tabla `tipus_contracte`
@@ -355,7 +314,7 @@ ALTER TABLE `missatge`
 --
 ALTER TABLE `recomanat`
   ADD CONSTRAINT `recomanat_ibfk_1` FOREIGN KEY (`tipusUsuari`) REFERENCES `tipus_usuari` (`tipusUsuari`);
-  
+
 --
 -- Filtros para la tabla `usuari`
 --

@@ -55,7 +55,6 @@ input[type=text]:focus, input[type=password]:focus {
 <?php
         include "../PHP/conexion.php";
         $vid = $_POST['video'];
-        $vid1 = (String)$vid;
         $selCont = 'SELECT * FROM contingut WHERE contingut.video = "'.$vid.'"'; 
         $cont =mysqli_query($con, $selCont);
         $mostrar=mysqli_fetch_array($cont);
@@ -63,7 +62,6 @@ input[type=text]:focus, input[type=password]:focus {
 <form action="adminInsertContenido.php" method="post">
   <div class="container">
   <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>
-    <?php echo "$vid1";?>
     <h2><center>Modificacion Contenido: <?php echo $mostrar['titol']?></center></h2>
     <hr>
 
