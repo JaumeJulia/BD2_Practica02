@@ -50,6 +50,11 @@ if (!isset($_SESSION['user'])){
             background-color:  #ffff80 ;
 
         }
+        .button1{background-color:  red ; border: 2px solid black}
+        .button1:hover{
+            background-color:  black ;
+
+        }
         
         
       
@@ -81,6 +86,11 @@ if (!isset($_SESSION['user'])){
     <form action="../BD243466710E/VisualizarContratos.php" method="post">
     <div class="container">
     <center><button type="submit" class="button" style="color: #4F35CD;" >Modificar Tabla Contratos</button></center>
+    </form>
+
+    <form action="../PHP/identifica.php">
+    <div class="container">
+    <center><button type="submit" class="button button1" style="color: white;" >Salir</button></center>
     </form>
   </div>
 </table>
