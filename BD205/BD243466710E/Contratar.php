@@ -44,7 +44,7 @@
 
     }else{
         ?>
-            <center><form method="post" action ="creaContrato.php">
+            <center><form method="post" action ="crearContrato.php">
             Tipo de Contrato:
                 <input type="radio" name="tipusContracte" value="mensual" checked>Mensual
                 <input type="radio" name="tipusContracte" value="trimestral">Trimestral

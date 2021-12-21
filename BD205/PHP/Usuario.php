@@ -50,7 +50,7 @@ if(!array_key_exists('uname', $_POST)){
 include "conexion.php";
 $sql_contrato="SELECT contracte.suscrit FROM contracte WHERE contracte.nomUsuari='".$usuario."'";
 $suscrit=mysqli_query($con,$sql_contrato);
-if(mysqli_num_rows($suscrit) > 0){
+if(!empty($suscrit) && mysqli_num_rows($suscrit) > 0){
     $suscrit=mysqli_fetch_array($suscrit);
 }else{
   $suscrit=NULL;
