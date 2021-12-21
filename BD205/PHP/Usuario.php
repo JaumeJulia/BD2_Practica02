@@ -92,10 +92,8 @@ if($suscrit!=NULL && $suscrit['suscrit'] == 1){
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Ver Contenidos Favoritos</button></center>
     <input type="hidden" name="uname" value="<?php echo $usuario?>">
     </form>
-    <?php
-}
-  ?>
-  <form action="../BD243481084K/Categoria/mostrar_categoria_favorita.php" method="get">
+
+    <form action="../BD243481084K/Categoria/mostrar_categoria_favorita.php" method="get">
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Administrar Categorias Favoritas</button></center>
     <input type="hidden" name="uname" value="<?php echo $usuario?>">
     </form>
@@ -104,7 +102,10 @@ if($suscrit!=NULL && $suscrit['suscrit'] == 1){
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Administrar Contenido Favorito</button></center>
     <input type="hidden" name="uname" value="<?php echo $usuario?>">
     </form>
-
+    <?php
+}
+  ?>
+  
     <form action="../BD243466710E/Contratar.php" method="get">
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Administrar Contrato</button></center>
     <input type="hidden" name="uname" value="<?php echo $usuario?>">
