@@ -1,7 +1,8 @@
 <?php
 session_start();
-$user= $_SESSION['user'];  //Hacer un SELECT con el nombre de usuario para sacar el idContracte
+$user = $_SESSION['user'];  //Hacer un SELECT con el nombre de usuario para sacar el idContracte
 $video = $_POST['video'];
+$return = $_POST['url'];
 
 include "../../PHP/conexion.php";
 
@@ -16,14 +17,14 @@ if (mysqli_query($con,$cadena)) {
 
     echo "<script>
 alert('Añadido con éxito');
-window.location.href='../../BD243466710E/ConsultarContenidoCompleto.php';
+window.location.href='../../".$return."';
 </script>";
 
 } else {
 
     echo "<script>
-alert('Error al crear usuario');
-window.location.href='../../BD243466710E/ConsultarContenidoCompleto.php';
+alert('Este video ya está en favoritos');
+window.location.href='../../".$return."';
 </script>";
 
 }
