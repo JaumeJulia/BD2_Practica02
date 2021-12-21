@@ -59,7 +59,7 @@ input[type=text]:focus, input[type=password]:focus {
 <body>
 <?php
         include "../PHP/conexion.php";
-        $user = $_SESSION['user'];
+        $user = $_POST['nomUsuari'];
         $selCont = 'SELECT * FROM usuari WHERE usuari.nomUsuari = "'.$user.'"'; 
         $cont =mysqli_query($con, $selCont);
         $mostrar=mysqli_fetch_array($cont);
