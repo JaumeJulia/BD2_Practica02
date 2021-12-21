@@ -45,8 +45,7 @@ $resultado = mysqli_query($con,$intrRec);
 
 $cadena = "INSERT INTO contingut VALUES ('".$cat."', '".$tit."', '".$vid."', '".$date."' )";
 
-$olamundo = mysqli_query($con,$cadena);
-
+if (mysqli_query($con,$cadena)) {
 
 $cadenase1="SELECT usuari.nomUsuari FROM usuari 
 INNER JOIN (recomanat 
@@ -62,37 +61,40 @@ $resu = mysqli_query($con,$cadenase1);
 if(!empty($resu) && mysqli_num_rows($resu) > 0){
 
 while($mostrar=mysqli_fetch_array($resu)){
-    $misid = "SELECT idMissatge FROM missatge";
+
+
+    $misid = "SELECT idMissatge FROM missatge ORDER BY idMissatge";
 
     $missat = mysqli_query($con, $misid);
 
     $nuevaId = 1;
 
     while ($idmis = mysqli_fetch_array($missat)) {
+     
         $idActual = $idmis["idMissatge"];
 
-        if($nuevaId != $idActual){
+        if($nuevaId == $idActual){
+            $nuevaId = $nuevaId + 1;
 
+        }else{
             break;
 
         }
 
-        $nuevaId = $nuevaId + 1;
+        
     }
     $in ="INSERT INTO missatge VALUES('".$nuevaId."','".$mostrar['nomUsuari']."','".$vid."','Puede que te interese esto','FALSE' )";
     $res=mysqli_query($con,$in);
     
 }
 }
-$seametido='SELECT * FROM contingut WHERE contingut.video="'.$vid.'"';
-if (mysqli_query($con,$seametido)) {
-
     echo "<script>
 alert('Contenido creado');
 window.location.href='../PHP/Admin.php';
 </script>";
 
-} else {
+ 
+}else {
 
     echo "<script>
 alert('Error al crear contenido');
