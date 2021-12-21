@@ -112,6 +112,15 @@ if($suscrit!=NULL && $suscrit['suscrit'] == 1){
     <form action="../BD243481084K/Contenido/mostrar_contenido_favorito.php" method="get">
     <center><button type="submit" class="button" style="color: #4F35CD;" >Administrar Contenido Favorito</button></center>
     </form>
+
+    <form action="../BD243220819R/VisualizarMensajes.php" method="get">
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Visualizar Mensajes No Leidos</button></center>
+    </form>
+
+    <form action="../BD243220819R/VisualizarTodoMensaje.php" method="get">
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Visualizar Todos los Mensajes</button></center>
+    </form>
+
     <?php
 }
   ?>
