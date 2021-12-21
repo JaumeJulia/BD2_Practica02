@@ -53,7 +53,7 @@ input[type=text]:focus, input[type=password]:focus {
 </head>
 <body>
 
-<form action="adminInsertContenido.php" method="post">
+<form action="../BD243234513X/adminInsertContenido.php" method="post">
   <div class="container">
   <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     <h2><center>Insercion de Contenido</center></h2>
@@ -73,7 +73,7 @@ input[type=text]:focus, input[type=password]:focus {
 
     <label for="edad"><b>Contenido Para</b></label>
     <input type="text" placeholder="Introduce la edad requerida para ver el contenido " name="edad" id="edad" required>
-    
+
     <button type="submit" class="button button1" style="color: #68b9da;" >Añadir Contenido</button>
     
   </div>
