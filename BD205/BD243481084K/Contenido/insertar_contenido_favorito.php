@@ -12,8 +12,19 @@ $idContracte = $idContracte['idContracte'];
 
 $cadena = "insert into CONTFAV (idContracte,video) values ('".$idContracte."','".$video."')";
 
-mysqli_query($con,$cadena);
+if (mysqli_query($con,$cadena)) {
 
-echo $cadena;
-include "mostrar_contenido_favorito.php";
+    echo "<script>
+alert('Añadido con éxito');
+window.location.href='../../BD243466710E/ConsultarContenidoCompleto.php';
+</script>";
+
+} else {
+
+    echo "<script>
+alert('Error al crear usuario');
+window.location.href='../../BD243466710E/ConsultarContenidoCompleto.php';
+</script>";
+
+}
 ?>
