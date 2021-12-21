@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-12-2021 a las 14:01:56
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.3
+-- Tiempo de generación: 21-12-2021 a las 16:35:39
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bd205`
 --
+CREATE DATABASE IF NOT EXISTS `bd205` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd205`;
 
 -- --------------------------------------------------------
 
@@ -32,11 +33,6 @@ CREATE TABLE `categoria` (
   `categoria` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `categoria`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -47,11 +43,6 @@ CREATE TABLE `catfav` (
   `idContracte` int(9) NOT NULL,
   `categoria` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `catfav`
---
-
 
 -- --------------------------------------------------------
 
@@ -91,11 +82,6 @@ CREATE TABLE `contracte` (
   `dataFinal` date NOT NULL,
   `suscrit` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `contracte`
---
-
 
 -- --------------------------------------------------------
 
@@ -145,12 +131,6 @@ CREATE TABLE `tipus_contracte` (
   `tipusContracte` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `tipus_contracte`
---
-
-
-
 -- --------------------------------------------------------
 
 --
@@ -160,11 +140,6 @@ CREATE TABLE `tipus_contracte` (
 CREATE TABLE `tipus_usuari` (
   `tipusUsuari` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `tipus_usuari`
---
-
 
 -- --------------------------------------------------------
 
@@ -179,12 +154,6 @@ CREATE TABLE `usuari` (
   `nomiLlinatges` char(50) NOT NULL,
   `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `usuari`
---
-
-
 
 --
 -- Índices para tablas volcadas
