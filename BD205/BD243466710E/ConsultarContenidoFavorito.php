@@ -18,6 +18,20 @@
 <body>
     <?php $user= $_GET['uname'];
     echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    function getYoutubeEmbedUrl($url)
+{
+     $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+     $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+    if (preg_match($longUrlRegex, $url, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    }
+
+    if (preg_match($shortUrlRegex, $url, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    }
+    return 'https://www.youtube.com/embed/' . $youtube_id ;
+}
     ?>
     <center><H3>Contenidos Disponible</H3></center>
     <br>
@@ -53,7 +67,7 @@
                                 <tr>
                                     <td><center><?php echo $mostrar['titol'] ?></center></td> 
                                     <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-                                    <td><center><?php echo $mostrar['video'] ?></center></td> 
+                                    <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
                                 </tr>
                                 <?php
                             }
@@ -74,7 +88,7 @@
                                     <tr>
                                         <td><center><?php echo $mostrar['titol'] ?></center></td> 
                                         <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-                                        <td><center><?php echo $mostrar['video'] ?></center></td> 
+                                        <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
                                     </tr>
                                     <?php
                             }
@@ -95,7 +109,7 @@
                                 <tr>
                                     <td><center><?php echo $mostrar['titol'] ?></center></td> 
                                     <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-                                    <td><center><?php echo $mostrar['video'] ?></center></td> 
+                                    <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
                                 </tr>
                                 <?php
                             }
