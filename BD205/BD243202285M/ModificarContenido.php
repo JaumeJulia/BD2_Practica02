@@ -59,24 +59,23 @@ input[type=text]:focus, input[type=password]:focus {
         $cont =mysqli_query($con, $selCont);
         $mostrar=mysqli_fetch_array($cont);
 ?>
-<form action="adminInsertContenido.php" method="post">
+<form action="adminUpdateContenido.php" method="post">
   <div class="container">
   <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>
     <h2><center>Modificacion Contenido: <?php echo $mostrar['titol']?></center></h2>
     <hr>
+    <label for="video"><b></b></label>
+    <input type="hidden" placeholder="Inserta nuevo titulo" name="video" id="video" value=<?php echo $mostrar['video']?> required>
+
+    <label for="titulo"><b>Titulo</b></label>
+    <input type="text" placeholder="Inserta nuevo titulo" name="titulo" id="titulo" required>
 
     <label for="categoria"><b>Categoria</b></label>
     <input type="text" placeholder=<?php echo $mostrar['categoria']?> name="categoria" id="categoria" required>
 
-    <label for="titulo"><b>Titulo</b></label>
-    <input type="text" placeholder="Introduce el titulo" name="titulo" id="titulo" required>
-
-    <label for="video"><b>Video</b></label>
-    <input type="text" placeholder="Añade la URL del contenido" name="video" id="video" required>
-
     <label for="fecha"><b>Fecha</b></label>
-    <input type="text" placeholder="Introduce la fecha de introduccion (yyyy-mm-dd) " name="fecha" id="fecha" required>
-    <button type="submit" class="button button1" style="color: #68b9da;" >Añadir Contenido</button>
+    <input type="text" placeholder=<?php echo $mostrar['dataIntroduit']?> name="fecha" id="fecha" required>
+    <button type="submit" class="button button1" style="color: #68b9da;" >Modificar Contenido</button>
     
   </div>
 
