@@ -1,7 +1,25 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Contenidos</title>
+    <style>
+    table, th, td {
+        border: 2px solid pink;
+        background-color: #68b9da;
+        
+    }
+    table.center{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    </style>
+<head>
 
 <body>
+<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../../Images/Notflix.PNG" width="300"></a></center>
+<center><H3>Categorias favoritas</H3></center>
+    <br>
 
 <?php
 include "../../PHP/conexion.php";
@@ -19,19 +37,27 @@ $consultaCatFav = 'SELECT categoria.categoria from
 
 $categoriasFavoritas = mysqli_query($con,$consultaCatFav);
 
-if($categoriasFavoritas == false){ //evita el error de que el array sea devuelto como una booleana, caso provocado por la tabla siendo de nueva generación
-    ?> <center> No hay categorias favoritas. <br> Añade una categoria que te guste en el menu de categorias disponibles!</center>; <?php
-} else {
-    while ($reg = mysqli_fetch_assoc($categoriasFavoritas)){ //muestra las categorias favoritas
-    ?>
-        <tr>
-            <td><center><?php echo $reg['categoria'] ?></center></td> 
-        </tr>
-    <?php
-    }
-}
-
 ?>
+<table class="center">
+    <tr>
+        <td><b><p style="color:black">Categoria</p></b></td>  
+        <!-- <td><b><p style="color:black">Añadir a favoritos</p></b></td>  -->
+    </tr>
+    <?php
+    if($categoriasFavoritas == false){ //evita el error de que el array sea devuelto como una booleana, caso provocado por la tabla siendo de nueva generación
+        ?> <center> No hay categorias favoritas. <br> Añade una categoria que te guste en el menu de categorias disponibles!</center>; <?php
+    } else {
+        while ($reg = mysqli_fetch_assoc($categoriasFavoritas)){ //muestra las categorias favoritas
+        ?>
+            <tr>
+                <td><center><?php echo $reg['categoria'] ?></center></td> 
+            </tr>
+        <?php
+        }
+    }
+
+    ?>
+</table>
 
 <?php
 
