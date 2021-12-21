@@ -50,7 +50,6 @@ if (!isset($_SESSION['user'])){
         </tr>
         <?php
         include "../PHP/conexion.php";
-        $user= $_GET['uname'];
         $sql_edad="SELECT usuari.tipusUsuari FROM usuari WHERE usuari.nomUsuari='".$user."'";
         $edad=mysqli_query($con,$sql_edad);
         if(mysqli_num_rows($edad) > 0){
