@@ -22,22 +22,22 @@
 
     include "../PHP/conexion.php";
 
-    $consultaContratoUsuario = 'SELECT contracte.suscrit, contracte.dataFinal FROM contracte WHERE contracte.nomUsuari = "'.$user.'"'; //sacamos el contrato del usuario si existe
+    $consultaContratoUsuario = 'SELECT contracte.suscrit, contracte.dataFinal, contracte.idContracte FROM contracte WHERE contracte.nomUsuari = "'.$user.'"'; //sacamos el contrato del usuario si existe
     $contrato = mysqli_query($con, $consultaContratoUsuario);
     if(!empty($contrato) && mysqli_num_rows($contrato) > 0){
         $mostrar=mysqli_fetch_array($contrato);
         if($mostrar['suscrit'] == 1){
             $date = date_create_from_format('Y-m-d', date('Y-m-d'));
             $diff = date_diff($date,date_create($mostrar['dataFinal']));
-            echo 'Su contrato sige vigente. Caduca en '.$diff->d. ' dias.';
+            echo 'Su contrato sigue vigente. Caduca en '.$diff->d. ' dias.';
         }else{
             ?>
-            <center><form method="post" action ="actualizaContrato.php">
+            <center><form method="post" action ="actualizarContrato.php">
             Tipo de Contrato:
                 <input type="radio" name="tipusContracte" value="mensual" checked>Mensual
                 <input type="radio" name="tipusContracte" value="trimestral">Trimestral
-                <input type="hidden" name="uname" value="<?php echo $user;?>">
-                <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
+                <input type="hidden" name="uname" value="<?php echo $user;?>"/>
+                <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>"/>
                 <input type="submit" name="Aceptar" value="Aceptar"> 
             </form></center>
             <?php

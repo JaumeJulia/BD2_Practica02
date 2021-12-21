@@ -18,7 +18,7 @@ while (!isset($_SESSION)) {
     $idContracte= $_POST['idContracte'];
       
 }
-
+echo "hola";
 include "../PHP/conexion.php";
 
 $user= $_POST['uname'];
@@ -34,17 +34,18 @@ if($tipusContracte == "mensual"){
     $enddate = date('Y-m-d',strtotime($startdate."+ 3 month"));
 }
 
-$cadena = "UPDATE contracte SET tipusContracte = '".$tipusContracte."', dataFinal = '".$enddate"', suscrit = '1' WHERE idContracte = '".$idContracte"'";
+$cadena = "UPDATE contracte SET tipusContracte = '$tipusContracte', dataFinal = '$enddate', suscrit = TRUE WHERE idContracte = $idContracte";
+echo $cadena;
 
 if (mysqli_query($con,$cadena)) {
     echo "<script>
-alert('Contrato creado con éxito');
+alert('Actualizado con éxito');
 </script>";
 header("Location: ../PHP/Usuario.php?uname=$user");
 
 } else {
     echo "<script>
-alert('Error al crear el contrato');
+alert('Error al actualizar');
 </script>";
 header("Location: ../PHP/Usuario.php?uname=$user");
 }
