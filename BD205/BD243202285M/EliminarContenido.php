@@ -5,9 +5,8 @@
     <?php
         include "../PHP/conexion.php";
         $vid = $_POST['video'];
-        echo '¡Hola ' . htmlspecialchars($_POST["video"]) . '!';
-        echo "ola";
-        echo "$vid";
+        
+
         $consultaContfav = 'SELECT * FROM contfav WHERE contfav.video = "'.$vid.'"'; //sacamos los contenidos favoritos asociados al contrato
         $contfav = mysqli_query($con, $consultaContfav);
 
