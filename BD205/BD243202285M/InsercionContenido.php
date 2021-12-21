@@ -19,8 +19,13 @@ button {
         border-radius: 8px;
         cursor: pointer;
         width: 20%;
+        background-color:  pink ;
+        border: 2px solid #ffff80;
         }
-.button1 {background-color: pink  ;border: 2px solid #99d8ea;}
+        button:hover{
+            background-color:  #ffff80 ;
+
+        }
 
 /* Add padding to containers */
 .container {
@@ -74,7 +79,7 @@ input[type=text]:focus, input[type=password]:focus {
     <label for="edad"><b>Contenido Para</b></label>
     <input type="text" placeholder="Introduce la edad requerida para ver el contenido " name="edad" id="edad" required>
 
-    <button type="submit" class="button button1" style="color: #68b9da;" >Añadir Contenido</button>
+    <button type="submit" class="button" style="color: #68b9da;" >Añadir Contenido</button>
     
   </div>
 

@@ -35,7 +35,7 @@ if (!isset($_SESSION['user'])){
     background-color: transparent;
     text-decoration: underline;
     }
-        button {
+    button {
         color: white;
         padding: 14px 20px;
         margin: 8px 0;
@@ -43,8 +43,13 @@ if (!isset($_SESSION['user'])){
         border-radius: 8px;
         cursor: pointer;
         width: 20%;
+        background-color:  pink ;
+        border: 2px solid #ffff80;
         }
-        .button1 {background-color:  pink ;border: 2px solid #ffff80;}
+        button:hover{
+            background-color:  #ffff80 ;
+
+        }
     </style>
     <div class="container">
 <center><img src="../Images/Notflix.PNG" width="300"></center>
@@ -67,19 +72,19 @@ if(!empty($suscrit) && mysqli_num_rows($suscrit) > 0){
   <div class="container">
 
     <form action="../BD243220819R/ConsultarRecomanats.php" method="get">
-    <center><button type="submit" class="button button1" style="color: #4F35CD;" >Consultar Recomendados</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Consultar Recomendados</button></center>
     </form>
 
     <form action="../BD243220819R/Visualizartabla.php" method="get">
-    <center><button type="submit" class="button button1" style="color: #4F35CD;" >Visualizar Facturas</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Visualizar Facturas</button></center>
     </form>
 
     <form action="../BD243466710E/ConsultarContenidoCompleto.php" method="get">
-    <center><button type="submit" class="button button1" style="color: #4F35CD;" >Ver Contenidos</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Ver Contenidos</button></center>
     </form>
     
     <form action="../BD243202285M/UsuarioModContraseña.php" method="get">
-    <center><button type="submit" class="button button1" style="color: #4F35CD;" >Modificar Contraseña</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Modificar Contraseña</button></center>
     </form>
 
 
@@ -88,26 +93,26 @@ if(!empty($suscrit) && mysqli_num_rows($suscrit) > 0){
 if($suscrit!=NULL && $suscrit['suscrit'] == 1){
   ?>
     <form action="../BD243466710E/ConsultarContenidoCatfav.php" method="get">
-    <center><button type="submit" class="button button1" style="color: #4F35CD;" >Ver Contenidos de las Categorias Favoritas</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Ver Contenidos de las Categorias Favoritas</button></center>
     </form>
 
     <form action="../BD243466710E/ConsultarContenidoFavorito.php" method="get">
-    <center><button type="submit" class="button button1" style="color: #4F35CD;" >Ver Contenidos Favoritos</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Ver Contenidos Favoritos</button></center>
     </form>
 
     <form action="../BD243481084K/Categoria/mostrar_categoria_favorita.php" method="get">
-    <center><button type="submit" class="button button1" style="color: #4F35CD;" >Administrar Categorias Favoritas</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Administrar Categorias Favoritas</button></center>
     </form>
 
     <form action="../BD243481084K/Contenido/mostrar_contenido_favorito.php" method="get">
-    <center><button type="submit" class="button button1" style="color: #4F35CD;" >Administrar Contenido Favorito</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Administrar Contenido Favorito</button></center>
     </form>
     <?php
 }
   ?>
   
     <form action="../BD243466710E/Contratar.php" method="get">
-    <center><button type="submit" class="button button1" style="color: #4F35CD;" >Administrar Contrato</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Administrar Contrato</button></center>
     </form>
   </div>
 </body>

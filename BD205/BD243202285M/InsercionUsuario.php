@@ -19,8 +19,13 @@ button {
         border-radius: 8px;
         cursor: pointer;
         width: 20%;
+        background-color:  pink ;
+        border: 2px solid #ffff80;
         }
-.button1 {background-color: pink  ;border: 2px solid #99d8ea;}
+        button:hover{
+            background-color:  #ffff80 ;
+
+        }
 
 /* Add padding to containers */
 .container {
@@ -73,7 +78,7 @@ input[type=text]:focus, input[type=password]:focus {
 
     <label for="number"><b>Edad</b></label>
     <input type="number" placeholder="Introduce tu edad" name="number" id="number" required>
-    <button type="submit" class="button button1" style="color: #68b9da;" >Añadir Usuario</button>
+    <button type="submit" class="button" style="color: #68b9da;" >Añadir Usuario</button>
     
   </div>
 

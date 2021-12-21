@@ -43,8 +43,15 @@ if (!isset($_SESSION['user'])){
         border-radius: 8px;
         cursor: pointer;
         width: 20%;
+        background-color:  pink ;
+        border: 2px solid #ffff80;
         }
-        .button1 {background-color:  pink ;border: 2px solid #ffff80;}
+        button:hover{
+            background-color:  #ffff80 ;
+
+        }
+        
+        
       
     </style>
     <div class="container">
@@ -53,27 +60,27 @@ if (!isset($_SESSION['user'])){
 <table align="center">
     <form action="../BD243202285M/InsercionUsuario.php" method="post">
     <div class="container">
-    <center><button type="submit" class="button button1" style="color: #68b9da;" >Añadir Usuario</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Añadir Usuario</button></center>
     </form>
 
     <form action="../BD243202285M/InsercionContenido.php" method="post">
     <div class="container">
-    <center><button type="submit" class="button button1" style="color: #68b9da;" >Añadir Contenido</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Añadir Contenido</button></center>
     </form>
 
     <form action="../BD243202285M/VisualizacionUsuarios.php" method="post">
     <div class="container">
-    <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Tabla Usuarios</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Modificar Tabla Usuarios</button></center>
     </form>
 
     <form action="../BD243202285M/VisualizacionContenidos.php" method="post">
     <div class="container">
-    <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Tabla Contenidos</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Modificar Tabla Contenidos</button></center>
     </form>
 
     <form action="../BD243466710E/VisualizarContratos.php" method="post">
     <div class="container">
-    <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Tabla Contratos</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Modificar Tabla Contratos</button></center>
     </form>
   </div>
 </table>
