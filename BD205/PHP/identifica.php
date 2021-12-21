@@ -42,9 +42,10 @@ if (mysqli_num_rows($result) > 0){
   
 }else{
 
-    include "../index.html";
-
-    echo('<span style="color: red;" /><center> Usuario o contraseña incorrectos </center></span>');
+    echo "<script>
+alert('Usuario o contraseña incorrecta');
+</script>";
+header("Location: ../index.html");
 
 }
 
