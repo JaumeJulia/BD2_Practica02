@@ -1,3 +1,8 @@
+<?php 
+if (!isset($_SESSION['user'])){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +24,7 @@
 <body>
 <?php 
     
-    $user= $_GET['uname'];
+    $user= $_SESSION['user'];
     echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     ?>
 <center><H3>Tabla de facturas</H3></center>

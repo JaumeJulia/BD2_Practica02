@@ -1,3 +1,8 @@
+<?php 
+if (!isset($_SESSION['user'])){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +21,7 @@
     </style>
 <head>
 <body>
-    <?php $user= $_GET['uname'];
+    <?php $user= $_SESSION['user'];
     echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     function getYoutubeEmbedUrl($url)
     {
