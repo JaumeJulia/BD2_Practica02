@@ -77,6 +77,13 @@ if(!empty($suscrit) && mysqli_num_rows($suscrit) > 0){
     <form action="../BD243466710E/ConsultarContenidoCompleto.php" method="get">
     <center><button type="submit" class="button button1" style="color: #68b9da;" >Ver Contenidos</button></center>
     </form>
+    
+    <form action="../BD243202285M/UsuarioModContraseña.php" method="get">
+    <center><button type="submit" class="button button1" style="color: #68b9da;" >Modificar Contraseña</button></center>
+    <input type="hidden" name="uname" value="<?php echo $usuario?>">
+    </form>
+
+
 
 <?php
 if($suscrit!=NULL && $suscrit['suscrit'] == 1){

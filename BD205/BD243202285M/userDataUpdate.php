@@ -26,19 +26,16 @@ $contr= $_POST['contr'];
 $cadena = "UPDATE usuari SET usuari.contrasenya='".$contr."' WHERE usuari.nomUsuari= '".$user."'";
 
 if (mysqli_query($con,$cadena)) {
-
     echo "<script>
-alert('Contraseña modificada');
-window.location.href='../PHP/Usuario.php?uname='.$user.'';
+alert('Contraseña cambiada');
 </script>";
+header("Location: ../PHP/Usuario.php?uname=$user");
 
 } else {
-
     echo "<script>
-alert('Error al modificar contraseña');
-window.location.href='../PHP/Usuario.php?uname='.$user.'';
+alert('Error al cambiar Contraseña');
 </script>";
-
+header("Location: ../PHP/Usuario.php?uname=$user");
 }
 
 mysqli_close($con);
