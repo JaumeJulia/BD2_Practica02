@@ -54,28 +54,26 @@ input[type=text]:focus, input[type=password]:focus {
 <body>
 <?php
         include "../PHP/conexion.php";
-        $vid = $_POST['video'];
-        $selCont = 'SELECT * FROM contingut WHERE contingut.video = "'.$vid.'"'; 
+        $user = $_POST['nomUsuari'];
+        $selCont = 'SELECT * FROM usuari WHERE usuari.nomUsuari = "'.$user.'"'; 
         $cont =mysqli_query($con, $selCont);
         $mostrar=mysqli_fetch_array($cont);
 ?>
-<form action="adminUpdateContenido.php" method="post">
+<form action="adminUpdateUsuario.php" method="post">
   <div class="container">
   <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>
-    <h2><center>Modificacion Contenido: <?php echo $mostrar['titol']?></center></h2>
+    <h2><center>Modificacion Usuario: <?php echo $mostrar['nomUsuari']?></center></h2>
     <hr>
-    <label for="video"><b></b></label>
-    <input type="hidden" name="video" id="video" value=<?php echo $mostrar['video']?> required>
+    <label for="user"><b></b></label>
+    <input type="hidden" name="user" id="user" value=<?php echo $mostrar['nomUsuari']?> required>
 
-    <label for="titulo"><b>Titulo</b></label>
-    <input type="text" placeholder="Inserta nuevo titulo" name="titulo" id="titulo" required>
+    <label for="tipo"><b>Tipo de Usuario</b></label>
+    <input type="text" placeholder="Inserta el tipo de Usuario (>18,9-18,<9)" name="tipo" id="tipo" required>
 
-    <label for="categoria"><b>Categoria</b></label>
-    <input type="text" placeholder=<?php echo $mostrar['categoria']?> name="categoria" id="categoria" required>
+    <label for="admin"><b>Admin</b></label>
+    <input type="checkbox"  name="admin" id="admin" >
 
-    <label for="fecha"><b>Fecha</b></label>
-    <input type="text" placeholder=<?php echo $mostrar['dataIntroduit']?> name="fecha" id="fecha" required>
-    <button type="submit" class="button button1" style="color: #68b9da;" >Modificar Contenido</button>
+    <button type="submit" class="button button1" style="color: #68b9da;" >Modificar Usuario</button>
     
   </div>
 

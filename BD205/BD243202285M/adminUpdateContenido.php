@@ -28,14 +28,6 @@ $tit= $_POST['titulo'];
 $vid= $_POST['video'];
 
 $date= $_POST['fecha'];
-echo "cat ";
-echo "$cat";
-echo "vid ";
-echo "$vid";
-echo "tit ";
-echo "$tit";
-echo "fec ";
-echo "$date";
 
 $cadena = "UPDATE contingut SET contingut.categoria='".$cat."',contingut.titol= '".$tit."',contingut.dataIntroduit= '".$date."' WHERE contingut.video= '".$vid."'";
 
