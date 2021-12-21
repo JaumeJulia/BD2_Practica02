@@ -38,7 +38,7 @@ if (!isset($_SESSION['user'])){
     return 'https://www.youtube.com/embed/' . $youtube_id ;
 }
     ?>
-    <center><H3>Contenidos Disponible</H3></center>
+    <center><H3>Tus Contenidos en Favoritos</H3></center>
     <br>
     
     <table class="center">
