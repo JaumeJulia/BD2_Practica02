@@ -45,7 +45,8 @@ if (!isset($_SESSION['user'])){
         <tr>
             <td><b><p style="color:black">Titol</p></b></td> 
             <td><b><p style="color:black">Categoria</p></b></td> 
-            <td><b><p style="color:black">Video</p></b></td>                
+            <td><b><p style="color:black">Video</p></b></td>     
+            <td><b><p style="color:black">Añadir a favoritos</p></b></td>         
         </tr>
         <?php 
         //como mirar la fecha actual
@@ -73,7 +74,13 @@ if (!isset($_SESSION['user'])){
                                     <tr>
                                         <td><center><?php echo $mostrar['titol'] ?></center></td> 
                                         <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-                                        <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
+                                        <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td>
+                                        <td><form method="post" action="../BD243481084K/Contenido/insertar_contenido_favorito.php">
+                                            <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>">
+                                            <input type="hidden" name="url" value="BD243220819R/ConsultarRecomanats.php">
+                                            <center><button type="submit" >Favorito</button></center>
+                                            </form>
+                                        </td> 
                                     </tr>
                                     <?php
                                 }
@@ -93,10 +100,16 @@ if (!isset($_SESSION['user'])){
                                 while($mostrar=mysqli_fetch_array($result)){
                                     ?>
                                         <tr>
-                                            <td><center><?php echo $mostrar['titol'] ?></center></td> 
-                                            <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-                                            <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
-                                        </tr>
+                                        <td><center><?php echo $mostrar['titol'] ?></center></td> 
+                                        <td><center><?php echo $mostrar['categoria'] ?></center></td> 
+                                        <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td>
+                                        <td><form method="post" action="../BD243481084K/Contenido/insertar_contenido_favorito.php">
+                                            <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>">
+                                            <input type="hidden" name="url" value="BD243220819R/ConsultarRecomanats.php">
+                                            <center><button type="submit" >Favorito</button></center>
+                                            </form>
+                                        </td> 
+                                    </tr>
                                         <?php
                                 }
                             }
@@ -117,7 +130,13 @@ if (!isset($_SESSION['user'])){
                                     <tr>
                                         <td><center><?php echo $mostrar['titol'] ?></center></td> 
                                         <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-                                        <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
+                                        <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td>
+                                        <td><form method="post" action="../BD243481084K/Contenido/insertar_contenido_favorito.php">
+                                            <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>">
+                                            <input type="hidden" name="url" value="BD243220819R/ConsultarRecomanats.php">
+                                            <center><button type="submit" >Favorito</button></center>
+                                            </form>
+                                        </td> 
                                     </tr>
                                     <?php
                                 }
