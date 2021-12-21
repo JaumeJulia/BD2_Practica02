@@ -12,7 +12,7 @@ while (!isset($_SESSION)) {
 
     $tit= $_POST['titulo'];
 
-    $vid= .$_POST['video'];
+    $vid= $_POST['video'];
 
     $date= $_POST['fecha'];
       

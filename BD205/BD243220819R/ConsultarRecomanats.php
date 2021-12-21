@@ -18,6 +18,20 @@
 <body>
     <?php $user= $_GET['uname'];
     echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    function getYoutubeEmbedUrl($url)
+    {
+     $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+     $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+    if (preg_match($longUrlRegex, $url, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    }
+
+    if (preg_match($shortUrlRegex, $url, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    }
+    return 'https://www.youtube.com/embed/' . $youtube_id ;
+    }
     ?>
     <center><H3>Contenidos Disponible</H3></center>
     <br>
@@ -46,7 +60,7 @@
                                     recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='>18') 
                                     ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
                                     ON catfav.categoria = categoria.categoria)
-                                    ON contracte.idContracte = catfav.idContracte";                                   
+                                    ON contracte.idContracte = catfav.idContracte AND contracte.suscrit='1'";                                   
 
                 $result=mysqli_query($con,$sql_18);
                 if(mysqli_num_rows($result) > 0){
@@ -55,7 +69,7 @@
                                     <tr>
                                         <td><center><?php echo $mostrar['titol'] ?></center></td> 
                                         <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-                                        <td><center><?php echo $mostrar['video'] ?></center></td> 
+                                        <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
                                     </tr>
                                     <?php
                                 }
@@ -68,7 +82,7 @@
                                                 recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='9-18') 
                                                 ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
                                                 ON catfav.categoria = categoria.categoria)
-                                                ON contracte.idContracte = catfav.idContracte";  
+                                                ON contracte.idContracte = catfav.idContracte AND contracte.suscrit='1'";  
             
                             $result=mysqli_query($con,$sql_9_18);
                                 if(mysqli_num_rows($result) > 0){
@@ -77,7 +91,7 @@
                                         <tr>
                                             <td><center><?php echo $mostrar['titol'] ?></center></td> 
                                             <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-                                            <td><center><?php echo $mostrar['video'] ?></center></td> 
+                                            <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
                                         </tr>
                                         <?php
                                 }
@@ -90,7 +104,7 @@
                                                 recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='<9') 
                                                     ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
                                                     ON catfav.categoria = categoria.categoria)
-                                                    ON contracte.idContracte = catfav.idContracte";  
+                                                    ON contracte.idContracte = catfav.idContracte AND contracte.suscrit='1'";  
             
                             $result=mysqli_query($con,$sql_9);
                                 if(mysqli_num_rows($result) > 0){
@@ -99,7 +113,7 @@
                                     <tr>
                                         <td><center><?php echo $mostrar['titol'] ?></center></td> 
                                         <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-                                        <td><center><?php echo $mostrar['video'] ?></center></td> 
+                                        <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
                                     </tr>
                                     <?php
                                 }
