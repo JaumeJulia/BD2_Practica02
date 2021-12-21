@@ -61,11 +61,10 @@ if (!isset($_SESSION['user'])){
                 $sql_18="SELECT contingut.titol,contingut.categoria,contingut.video from contracte INNER JOIN (
                         catfav INNER JOIN( 
                             categoria INNER JOIN(
-                                contingut INNER JOIN
-                                    recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='>18') 
-                                    ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7))
-                                    ON catfav.categoria = categoria.categoria)
-                                    ON contracte.idContracte = catfav.idContracte AND contracte.suscrit='1' AND contracte.nomUsuari='".$user."'";                                   
+                                contingut INNER JOIN recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='>18') 
+                            ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
+                        ON catfav.categoria = categoria.categoria)
+                    ON contracte.idContracte = catfav.idContracte AND contracte.suscrit='1' AND contracte.nomUsuari='".$user."'";                                   
 
                 $result=mysqli_query($con,$sql_18);
                 if(!empty($result) && mysqli_num_rows($result) > 0){
