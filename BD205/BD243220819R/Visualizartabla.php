@@ -25,7 +25,7 @@ if (!isset($_SESSION['user'])){
 <?php 
     
     $user= $_SESSION['user'];
-    echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    echo '<center><a href="../PHP/Usuario.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     ?>
 <center><H3>Tabla de facturas</H3></center>
 <br>
