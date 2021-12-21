@@ -80,7 +80,7 @@ if(!empty($suscrit) && mysqli_num_rows($suscrit) > 0){
     </form>
 
     <form action="../BD243466710E/ConsultarContenidoCompleto.php" method="get">
-    <center><button type="submit" class="button" style="color: #4F35CD;" >Ver Contenidos</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Ver Contenido</button></center>
     </form>
     
     <form action="../BD243202285M/UsuarioModContraseña.php" method="get">
@@ -93,11 +93,11 @@ if(!empty($suscrit) && mysqli_num_rows($suscrit) > 0){
 if($suscrit!=NULL && $suscrit['suscrit'] == 1){
   ?>
     <form action="../BD243466710E/ConsultarContenidoCatfav.php" method="get">
-    <center><button type="submit" class="button" style="color: #4F35CD;" >Ver Contenidos de las Categorias Favoritas</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Ver Contenido de las Categorias Favoritas</button></center>
     </form>
 
     <form action="../BD243466710E/ConsultarContenidoFavorito.php" method="get">
-    <center><button type="submit" class="button" style="color: #4F35CD;" >Ver Contenidos Favoritos</button></center>
+    <center><button type="submit" class="button" style="color: #4F35CD;" >Ver Contenido Favoritos</button></center>
     </form>
 
     <form action="../BD243481084K/Categoria/mostrar_categoria_favorita.php" method="get">
