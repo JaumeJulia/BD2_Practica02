@@ -23,8 +23,6 @@ if (!isset($_SESSION['user'])){
 <head>
 <body>
 <?php 
-
-    include "../BD243234513X/facturas.php";
     
     $user= $_SESSION['user'];
     echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
