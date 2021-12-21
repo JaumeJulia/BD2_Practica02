@@ -33,6 +33,20 @@ if (!isset($_SESSION['user'])){
 
 <?php
 include "../../PHP/conexion.php";
+function getYoutubeEmbedUrl($url)
+{
+     $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+     $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+    if (preg_match($longUrlRegex, $url, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    }
+
+    if (preg_match($shortUrlRegex, $url, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    }
+    return 'https://www.youtube.com/embed/' . $youtube_id ;
+}
 
 $consulta = 'SELECT contingut.categoria, titol, contingut.video from 
                 ( CONTRACTE INNER JOIN CONTFAV ON
@@ -60,9 +74,9 @@ $contenidoFavorito = mysqli_query($con,$consulta);
         ?>
             <tr>
                 <!-- <td><center><?php// echo $mostrar['idContingut'] ?></center></td>  -->
-                <td><center><?php echo $mostrar['titol'] ?></center></td> 
-                <td><center><?php echo $mostrar['categoria'] ?></center></td> 
-                <td><center><?php echo $mostrar['video'] ?></center></td> 
+                <td><center><?php echo $reg['titol'] ?></center></td> 
+                <td><center><?php echo $reg['categoria'] ?></center></td> 
+                <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($reg['video']).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
             </tr>
 
         <?php

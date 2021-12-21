@@ -69,7 +69,7 @@ if (!isset($_SESSION['user'])){
                             <td><center><?php echo $mostrar['categoria'] ?></center></td> 
                             <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
                             <td><form method="post" action="../BD243481084K/Contenido/insertar_contenido_favorito.php">
-                                    <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>
+                                    <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>">
                                     <center><button type="submit" formaction="../BD243481084K/Contenido/insertar_contenido_favorito.php">Favorito</button></center>
                                     </form>
                             </td>
