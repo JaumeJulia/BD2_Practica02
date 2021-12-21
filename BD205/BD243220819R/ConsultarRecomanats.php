@@ -60,7 +60,7 @@
                                     recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='>18') 
                                     ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
                                     ON catfav.categoria = categoria.categoria)
-                                    ON contracte.idContracte = catfav.idContracte";                                   
+                                    ON contracte.idContracte = catfav.idContracte AND contracte.suscrit='1'";                                   
 
                 $result=mysqli_query($con,$sql_18);
                 if(mysqli_num_rows($result) > 0){
@@ -82,7 +82,7 @@
                                                 recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='9-18') 
                                                 ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
                                                 ON catfav.categoria = categoria.categoria)
-                                                ON contracte.idContracte = catfav.idContracte";  
+                                                ON contracte.idContracte = catfav.idContracte AND contracte.suscrit='1'";  
             
                             $result=mysqli_query($con,$sql_9_18);
                                 if(mysqli_num_rows($result) > 0){
@@ -104,7 +104,7 @@
                                                 recomanat ON contingut.video = recomanat.video AND recomanat.tipusUsuari='<9') 
                                                     ON categoria.categoria = contingut.categoria AND DATEDIFF('".$date."',contingut.dataIntroduit)<=7)
                                                     ON catfav.categoria = categoria.categoria)
-                                                    ON contracte.idContracte = catfav.idContracte";  
+                                                    ON contracte.idContracte = catfav.idContracte AND contracte.suscrit='1'";  
             
                             $result=mysqli_query($con,$sql_9);
                                 if(mysqli_num_rows($result) > 0){
