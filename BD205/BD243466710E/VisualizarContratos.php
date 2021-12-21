@@ -26,7 +26,7 @@
 <body>
 
 <div class="container">
-       <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+       <center><a href="../PHP/Admin.php"><img src="../Images/Notflix.PNG" width="300"></a></center>
 <div class="container">
    
 
