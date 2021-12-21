@@ -6,6 +6,8 @@ include "../../PHP/conexion.php";
 
 $consulta = 'SELECT idContracte from CONTRACTE where nomUsuari = "'.$usuari.'"';
 $idContracte = mysqli_query($con, $consulta);
+$idContracte = mysqli_fetch_array($idContracte);
+$idContracte = $idContracte['idContracte'];
 
 $cadena = "insert into CONTFAV (idContracte,video) values ('".$idContracte."','".$video."')";
 
