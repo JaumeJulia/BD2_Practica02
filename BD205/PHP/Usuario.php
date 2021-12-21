@@ -50,6 +50,11 @@ if (!isset($_SESSION['user'])){
             background-color:  #ffff80 ;
 
         }
+        .button1{background-color:  red ; border: 2px solid black}
+        .button1:hover{
+            background-color:  black ;
+
+        }
     </style>
     <div class="container">
 <center><img src="../Images/Notflix.PNG" width="300"></center>
@@ -113,6 +118,11 @@ if($suscrit!=NULL && $suscrit['suscrit'] == 1){
   
     <form action="../BD243466710E/Contratar.php" method="get">
     <center><button type="submit" class="button" style="color: #4F35CD;" >Administrar Contrato</button></center>
+    </form>
+
+    <form action="../PHP/identifica.php" >
+    <div class="container">
+    <center><button type="submit" class="button button1" style="color: white;" >Salir</button></center>
     </form>
   </div>
 </body>
