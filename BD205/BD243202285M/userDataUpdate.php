@@ -1,6 +1,10 @@
 <?php
 
-session_start();
+
+if (!isset($_SESSION['user'])){
+    session_start();
+}
+
 
 while (!isset($_SESSION)) {
     
@@ -17,7 +21,7 @@ while (!isset($_SESSION)) {
 include "../PHP/conexion.php";
 
 
-$user= $_POST['user'];
+$user= $_SESSION['user'];
 
 $contr= $_POST['contr'];
   
