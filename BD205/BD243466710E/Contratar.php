@@ -1,3 +1,8 @@
+<?php 
+if (!isset($_SESSION['user'])){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +21,8 @@
     </style>
 <head>
 <body>
-    <?php $user= $_GET['uname'];
-    echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    <?php $user= $_SESSION['user'];
+    echo '<center><a href="../PHP/Usuario.php?uname="><img src="../Images/Notflix.PNG" width="300"></a></center>';
     echo '<center><H3>Contratos</H3></center><br>';
 
     include "../PHP/conexion.php";
@@ -37,7 +42,6 @@
             Tipo de Contrato:
                 <input type="radio" name="tipusContracte" value="mensual" checked>Mensual
                 <input type="radio" name="tipusContracte" value="trimestral">Trimestral
-                <input type="hidden" name="uname" value="<?php echo $user;?>"/>
                 <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>"/>
                 <input type="submit" name="Aceptar" value="Aceptar"> 
             </form></center>
@@ -50,7 +54,6 @@
             Tipo de Contrato:
                 <input type="radio" name="tipusContracte" value="mensual" checked>Mensual
                 <input type="radio" name="tipusContracte" value="trimestral">Trimestral
-                <input type="hidden" name="uname" value="<?php echo $user;?>">
                 <input type="submit" name="Aceptar" value="Aceptar"> 
             </form></center>
             <?php

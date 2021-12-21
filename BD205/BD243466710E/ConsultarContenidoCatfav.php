@@ -1,3 +1,8 @@
+<?php 
+if (!isset($_SESSION['user'])){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +21,8 @@
     </style>
 <head>
 <body>
-    <?php $user= $_GET['uname'];
-    echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    <?php $user= $_SESSION['user'];
+    echo '<center><a href="../PHP/Usuario.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     function getYoutubeEmbedUrl($url)
 {
      $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';

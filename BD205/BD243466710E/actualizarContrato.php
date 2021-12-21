@@ -1,27 +1,16 @@
+<?php 
+if (!isset($_SESSION['user'])){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
     <body>
     <?php
 
-session_start();
-
-while (!isset($_SESSION)) {
-    
-    echo "session no iniciada";
-
-    // Recollida de paràmetres
-
-    $user= $_POST['uname'];
-
-    $tipusContracte= $_POST['tipusContracte'];
-
-    $idContracte= $_POST['idContracte'];
-      
-}
-echo "hola";
 include "../PHP/conexion.php";
 
-$user= $_POST['uname'];
+$user= $_SESSION['user'];
 
 $tipusContracte= $_POST['tipusContracte'];
 

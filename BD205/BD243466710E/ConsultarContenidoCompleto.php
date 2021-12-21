@@ -1,3 +1,8 @@
+<?php 
+if (!isset($_SESSION['user'])){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +21,8 @@
     </style>
 <head>
 <body>
-    <?php $user= $_GET['uname'];
-    echo '<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    <?php $user= $_SESSION['user'];
+    echo '<center><a href="../PHP/Usuario.php?uname="><img src="../Images/Notflix.PNG" width="300"></a></center>';
     function getYoutubeEmbedUrl($url)
 {
      $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
@@ -65,7 +70,6 @@
                             <td><center><?php echo $mostrar['categoria'] ?></center></td> 
                             <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
                             <td><form method="post" action="../BD243481084K/Contenido/insertar_contenido_favorito.php">
-                                    <input type="hidden" name="usuari" value="<?php echo $user;?>">
                                     <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>
                                     <center><button type="submit" formaction="../BD243481084K/Contenido/insertar_contenido_favorito.php">Favorito</button></center>
                                     </form>
@@ -88,7 +92,6 @@
                                 <td><center><?php echo $mostrar['categoria'] ?></center></td> 
                                 <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
                                 <td><form method="post" action="../BD243481084K/Contenido/insertar_contenido_favorito.php">
-                                    <input type="hidden" name="usuari" value="<?php echo $user;?>">
                                     <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>">
                                     <center><button type="submit" >Favorito</button></center>
                                     </form>
@@ -111,7 +114,6 @@
                             <td><center><?php echo $mostrar['categoria'] ?></center></td> 
                             <td><center><?php echo '<iframe width="560" height="315" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td> 
                             <td><form method="post" action="../BD243481084K/Contenido/insertar_contenido_favorito.php">
-                                    <input type="hidden" name="usuari" value="<?php echo $user;?>">
                                     <input type="hidden" name="video" value="<?php echo $mostrar['video'];?>">
                                     <center><button type="submit" >Favorito</button></center>
                                     </form>
