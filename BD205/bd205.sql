@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-12-2021 a las 16:35:39
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.10
+-- Tiempo de generación: 21-12-2021 a las 20:18:16
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -169,6 +169,7 @@ ALTER TABLE `categoria`
 -- Indices de la tabla `catfav`
 --
 ALTER TABLE `catfav`
+  ADD PRIMARY KEY (`idContracte`,`categoria`),
   ADD KEY `idContracte` (`idContracte`),
   ADD KEY `categoria` (`categoria`);
 
@@ -176,6 +177,7 @@ ALTER TABLE `catfav`
 -- Indices de la tabla `contfav`
 --
 ALTER TABLE `contfav`
+  ADD PRIMARY KEY (`idContracte`,`video`),
   ADD KEY `idContracte` (`idContracte`),
   ADD KEY `video` (`video`);
 
