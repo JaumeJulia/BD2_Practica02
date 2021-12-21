@@ -46,7 +46,6 @@ if (!isset($_SESSION['user'])){
             <td><b><p style="color:black">Titol</p></b></td> 
             <td><b><p style="color:black">Categoria</p></b></td> 
             <td><b><p style="color:black">Video</p></b></td> 
-            <td><b><p style="color:black">Añadir a favoritos</p></b></td> 
         </tr>
         <?php
         include "../PHP/conexion.php";
