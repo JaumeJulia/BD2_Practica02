@@ -51,7 +51,7 @@ if (!isset($_SESSION['user'])){
         </tr>
         <?php 
         include "../PHP/conexion.php";
-        $sql="SELECT * from missatges WHERE missatges.vist='0' AND missatge.nomUsuari='".$user."'" ;
+        $sql="SELECT * from missatge WHERE missatge.vist='0' AND missatge.nomUsuari='".$user."'" ;
         
         $result=mysqli_query($con,$sql);
         if(!empty($result) && mysqli_num_rows($result) > 0){
@@ -60,9 +60,9 @@ if (!isset($_SESSION['user'])){
             <tr>
             <td><center><?php echo $mostrar['missatge'] ?></center></td> 
             <td><center><?php echo '<iframe width="280" height="157" src='.getYoutubeEmbedUrl($mostrar["video"]).' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?></center></td>             
-            <td><form method="post" action="../BD243481084K/Contenido/MensajeVisto.php">
-                <input type="hidden" name="idmissatge" value="<?php echo $mostrar['idmissatge'];?>">
-                <input type="hidden" name="url" value="BD243220819R/VisualizarMensajes.php">
+            <td><form method="post" action="MensajeVisto.php">
+                <input type="hidden" name="idmissatge" value="<?php echo $mostrar['idMissatge'];?>">
+                <input type="hidden" name="url" value="MensajeVisto.php">
                 <center><button type="submit" >Visto</button></center>
                 </form>
             </td> 

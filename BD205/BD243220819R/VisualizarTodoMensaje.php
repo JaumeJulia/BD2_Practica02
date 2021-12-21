@@ -51,7 +51,7 @@ if (!isset($_SESSION['user'])){
         </tr>
         <?php 
         include "../PHP/conexion.php";
-        $sql="SELECT * from missatges WHERE missatge.nomUsuari='".$user."'" ;
+        $sql="SELECT * from missatge WHERE missatge.nomUsuari='".$user."'" ;
         
         $result=mysqli_query($con,$sql);
         if(!empty($result) && mysqli_num_rows($result) > 0){
