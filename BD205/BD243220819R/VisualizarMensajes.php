@@ -54,7 +54,7 @@ if (!isset($_SESSION['user'])){
         $sql="SELECT * from missatges WHERE missatges.vist='0' AND missatge.nomUsuari='".$user."'" ;
         
         $result=mysqli_query($con,$sql);
-        if(mysqli_num_rows($result) > 0){
+        if(!empty($result) && mysqli_num_rows($result) > 0){
         while($mostrar=mysqli_fetch_array($result)){
         ?>
             <tr>
