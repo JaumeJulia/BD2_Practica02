@@ -70,6 +70,10 @@ input[type=text]:focus, input[type=password]:focus {
 
     <label for="fecha"><b>Fecha</b></label>
     <input type="text" placeholder="Introduce la fecha de introduccion (yyyy-mm-dd) " name="fecha" id="fecha" required>
+
+    <label for="edad"><b>Contenido Para</b></label>
+    <input type="text" placeholder="Introduce la edad requerida para ver el contenido " name="edad" id="edad" required>
+    
     <button type="submit" class="button button1" style="color: #68b9da;" >Añadir Contenido</button>
     
   </div>

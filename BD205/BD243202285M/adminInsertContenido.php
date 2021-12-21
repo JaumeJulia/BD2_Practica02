@@ -29,6 +29,18 @@ $vid= $_POST['video'];
 
 $date= $_POST['fecha'];
 
+$edad=$_POST['edad'];
+if($edad>18){
+    $edad1='>18';
+}else if($edad<9){
+    $edad1='<9';
+}else{
+    $edad1='9-18';
+
+}
+
+$intrRec = "INSERT INTO recomanat VALUES ('".$edad1."','".$vid."')";
+$resultado = mysqli_query($con,$intrRec);
 
 $cadena = "INSERT INTO contingut VALUES ('".$cat."', '".$tit."', '".$vid."', '".$date."' )";
 
