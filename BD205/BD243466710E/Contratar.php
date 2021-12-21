@@ -27,9 +27,10 @@
     if(!empty($contrato) && mysqli_num_rows($contrato) > 0){
         $mostrar=mysqli_fetch_array($contrato);
         if($mostrar['suscrit'] == 1){
-            $date = date_create_from_format('Y-m-d', date('Y-m-d'));
-            $diff = date_diff($date,date_create($mostrar['dataFinal']));
-            echo 'Su contrato sigue vigente. Caduca en '.$diff->d. ' dias.';
+            $date_actual = date_create_from_format('Y-m-d', date('Y-m-d'));
+            $date_final = date_create_from_format('Y-m-d', $mostrar['dataFinal']);
+            $diff = $date_actual->diff($date_final);
+            echo '<center><H3>Su contrato sigue vigente. Caduca en '.$diff->days. ' dias.</H3></center><br>';
         }else{
             ?>
             <center><form method="post" action ="actualizarContrato.php">
