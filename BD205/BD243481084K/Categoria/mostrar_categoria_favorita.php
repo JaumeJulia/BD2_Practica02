@@ -17,16 +17,18 @@
 <head>
 
 <body>
-<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../../Images/Notflix.PNG" width="300"></a></center>
+    <?php
+    if (array_key_exists('uname',$_GET)){ //solo existe el nombre de usuario en ese array cuando no lo hemos cogido nunca
+        $user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
+    }
+    ?>
+
+<center><a href="../../PHP/Usuario.php?uname=<?php echo $user ?>"><img src="../../Images/Notflix.PNG" width="300"></a></center>
 <center><H3>Categorias favoritas</H3></center>
     <br>
 
 <?php
 include "../../PHP/conexion.php";
-
-if (array_key_exists('uname',$_GET)){ //solo existe el nombre de usuario en ese array cuando no lo hemos cogido nunca
-    $user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
-}
 
 $consultaCatFav = 'SELECT categoria.categoria from  
                 ( contracte INNER JOIN catfav ON

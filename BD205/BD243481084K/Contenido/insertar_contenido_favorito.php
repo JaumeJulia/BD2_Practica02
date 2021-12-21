@@ -14,4 +14,5 @@ $cadena = "insert into CONTFAV (idContracte,video) values ('".$idContracte."','"
 mysqli_query($con,$cadena);
 
 echo $cadena;
+include "mostrar_contenido_favorito.php";
 ?>

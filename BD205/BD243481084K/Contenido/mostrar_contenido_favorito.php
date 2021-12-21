@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,16 +20,18 @@
 <head>
 
 <body>
-<center><a href="../PHP/Usuario.php?uname='.$user.'"><img src="../../Images/Notflix.PNG" width="300"></a></center>
+    <?php 
+    
+    if (array_key_exists('uname',$_GET)){
+        $user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
+    }
+    ?>
+<center><a href="../../PHP/Usuario.php?uname=<?php echo $user ?>"><img src="../../Images/Notflix.PNG" width="300"></a></center>
 <center><H3>Contenidos favoritos</H3></center>
     <br>
 
 <?php
 include "../../PHP/conexion.php";
-
-if (array_key_exists('uname',$_GET)){
-    $user = $_GET['uname']; //queremos conseguir el usuario para poder hacer el select de su contenido favorito
-}
 
 $consulta = 'SELECT contingut.categoria, titol, contingut.video from 
                 ( CONTRACTE INNER JOIN CONTFAV ON

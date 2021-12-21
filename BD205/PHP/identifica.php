@@ -7,7 +7,7 @@ while (!isset($_SESSION)) {
     echo "session no iniciada";
 
     // Recollida de paràmetres
-
+    $_SESSION['user'] = $_POST['uname'];
     $user= $_POST['uname'];
 
     $pass= $_POST['psw'];
@@ -15,6 +15,8 @@ while (!isset($_SESSION)) {
 }
 
 include "conexion.php";
+
+$_SESSION['user'] = $_POST['uname'];
 
 $user= $_POST['uname'];
 
