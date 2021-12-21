@@ -22,7 +22,7 @@ if (!isset($_SESSION['user'])){
 <head>
 <body>
     <?php $user= $_SESSION['user'];
-    echo '<center><a href="../PHP/Usuario.php?uname="><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    echo '<center><a href="../PHP/Usuario.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     function getYoutubeEmbedUrl($url)
 {
      $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
@@ -50,7 +50,6 @@ if (!isset($_SESSION['user'])){
         </tr>
         <?php
         include "../PHP/conexion.php";
-        $user= $_GET['uname'];
         $sql_edad="SELECT usuari.tipusUsuari FROM usuari WHERE usuari.nomUsuari='".$user."'";
         $edad=mysqli_query($con,$sql_edad);
         if(mysqli_num_rows($edad) > 0){
