@@ -86,7 +86,6 @@ $contenidoFavorito = mysqli_query($con,$consulta);
         <?php
         }
     }
-    $contenidoFavorito = mysqli_query($con,$consulta);
     ?>
 </table>
 
