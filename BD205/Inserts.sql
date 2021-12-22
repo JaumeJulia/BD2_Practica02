@@ -24,11 +24,13 @@ INSERT INTO categoria VALUES ("drama");
 INSERT INTO categoria VALUES ("comedia");
 INSERT INTO categoria VALUES ("romance");
 INSERT INTO categoria VALUES ("accion");
+INSERT INTO categoria VALUES ("documental");
 
 INSERT INTO contingut VALUES ("comedia","Nerver gonna give you up","https://www.youtube.com/watch?v=dQw4w9WgXcQ","2021-11-21");
 INSERT INTO contingut VALUES ("romance","historia de amor coreano","https://www.youtube.com/watch?v=e-pb72a5l80","2021-12-20");
 INSERT INTO contingut VALUES ("drama","Padre dona el corazon a su hijo","https://www.youtube.com/watch?v=zAcK0r7ma1A","2021-12-15");
 INSERT INTO contingut VALUES ("accion","Shape-Shifters [AMV] I'm Dangerous","https://www.youtube.com/watch?v=KHkCxmGOi4c","2021-12-21");
+INSERT INTO contingut VALUES ("documental","Base de Datos 2 - Práctica 2","https://youtu.be/7a994Z_Hisg","2021-12-22");
 
 INSERT INTO contfav VALUES ("1","https://www.youtube.com/watch?v=e-pb72a5l80");
 INSERT INTO contfav VALUES ("1","https://www.youtube.com/watch?v=KHkCxmGOi4c");
