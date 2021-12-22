@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-12-2021 a las 20:18:16
+-- Tiempo de generación: 22-12-2021 a las 16:51:26
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.2
 
@@ -291,6 +291,14 @@ ALTER TABLE `recomanat`
 --
 ALTER TABLE `usuari`
   ADD CONSTRAINT `usuari_ibfk_1` FOREIGN KEY (`tipusUsuari`) REFERENCES `tipus_usuari` (`tipusUsuari`);
+
+DELIMITER $$
+--
+-- Eventos
+--
+CREATE DEFINER=`root`@`localhost` EVENT `elimiarMensajes` ON SCHEDULE EVERY 1 WEEK STARTS '2021-12-22 16:50:31' ON COMPLETION NOT PRESERVE ENABLE DO DELETE missatge FROM missatge INNER JOIN contingut WHERE missatge.video=contingut.video AND (DATEDIFF('2021-12-22',contingut.dataIntroduit) > 7)$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
