@@ -59,9 +59,10 @@
             <td><center><?php echo $mostrar['dataFinal'] ?></center></td> 
             <td><center><?php echo $mostrar['suscrit'] ?></center></td>
             <?php 
-            $diff = date_diff($date,date_create($mostrar['dataFinal']));
+            $date_final = date_create_from_format('Y-m-d', $mostrar['dataFinal']);
+            $diff = $date ->diff($date_final);
                 if($mostrar['suscrit'] == 0){
-                    if($diff->d > 7){
+                    if($diff->d > 7 || $diff->m > 0){
                         ?>
                         <td><form method="post" action="eliminar_contrato.php">
                                 <input type="hidden" name="idContracte" value="<?php echo $mostrar['idContracte'];?>">
