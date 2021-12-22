@@ -30,13 +30,13 @@ if (mysqli_query($con,$cadena)) {
     echo "<script>
 alert('Actualizado con éxito');
 </script>";
-header("Location: ../PHP/Usuario.php?uname=$user");
+header("Location: ../PHP/Usuario.php");
 
 } else {
     echo "<script>
 alert('Error al actualizar');
 </script>";
-header("Location: ../PHP/Usuario.php?uname=$user");
+header("Location: ../PHP/Usuario.php");
 }
 
 mysqli_close($con);

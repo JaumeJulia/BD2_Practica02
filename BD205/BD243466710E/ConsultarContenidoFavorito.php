@@ -22,7 +22,7 @@ if (!isset($_SESSION['user'])){
 <head>
 <body>
     <?php $user= $_SESSION['user'];
-    echo '<center><a href="../PHP/Usuario.php?uname="><img src="../Images/Notflix.PNG" width="300"></a></center>';
+    echo '<center><a href="../PHP/Usuario.php"><img src="../Images/Notflix.PNG" width="300"></a></center>';
     function getYoutubeEmbedUrl($url)
 {
      $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
