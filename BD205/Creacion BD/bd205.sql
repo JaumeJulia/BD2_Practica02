@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-12-2021 a las 16:51:26
+-- Tiempo de generación: 22-12-2021 a las 20:48:51
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.2
 
@@ -33,6 +33,17 @@ CREATE TABLE `categoria` (
   `categoria` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`categoria`) VALUES
+('accion'),
+('comedia'),
+('documental'),
+('drama'),
+('romance');
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +55,15 @@ CREATE TABLE `catfav` (
   `categoria` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `catfav`
+--
+
+INSERT INTO `catfav` (`idContracte`, `categoria`) VALUES
+(1, 'comedia'),
+(1, 'drama'),
+(2, 'romance');
+
 -- --------------------------------------------------------
 
 --
@@ -54,6 +74,15 @@ CREATE TABLE `contfav` (
   `idContracte` int(9) NOT NULL,
   `video` char(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `contfav`
+--
+
+INSERT INTO `contfav` (`idContracte`, `video`) VALUES
+(1, 'https://www.youtube.com/watch?v=e-pb72a5l80'),
+(1, 'https://www.youtube.com/watch?v=KHkCxmGOi4c'),
+(2, 'https://www.youtube.com/watch?v=e-pb72a5l80');
 
 -- --------------------------------------------------------
 
@@ -67,6 +96,17 @@ CREATE TABLE `contingut` (
   `video` char(250) NOT NULL,
   `dataIntroduit` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `contingut`
+--
+
+INSERT INTO `contingut` (`categoria`, `titol`, `video`, `dataIntroduit`) VALUES
+('documental', 'Base de Datos 2 - Práctica 2', 'https://www.youtube.com/watch?v=2MIyBOz9KMw', '2021-12-22'),
+('comedia', 'Nerver gonna give you up', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', '2021-11-21'),
+('romance', 'historia de amor coreano', 'https://www.youtube.com/watch?v=e-pb72a5l80', '2021-12-20'),
+('accion', 'Shape-Shifters [AMV] I\'m Dange', 'https://www.youtube.com/watch?v=KHkCxmGOi4c', '2021-12-21'),
+('drama', 'Padre dona el corazon a su hij', 'https://www.youtube.com/watch?v=zAcK0r7ma1A', '2021-12-15');
 
 -- --------------------------------------------------------
 
@@ -83,6 +123,15 @@ CREATE TABLE `contracte` (
   `suscrit` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `contracte`
+--
+
+INSERT INTO `contracte` (`idContracte`, `nomUsuari`, `tipusContracte`, `dataAlta`, `dataFinal`, `suscrit`) VALUES
+(1, 'Alberto', 'mensual', '2021-12-15', '2022-01-14', 1),
+(2, 'Carlos', 'trimestral', '2021-12-15', '2022-03-15', 1),
+(3, 'Antoine', 'mensual', '2021-11-15', '2021-12-15', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +144,15 @@ CREATE TABLE `factura` (
   `data` datetime NOT NULL,
   `import` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` (`idFactura`, `idContracte`, `data`, `import`) VALUES
+(1, 1, '2021-12-15 00:00:00', 15),
+(2, 2, '2021-12-15 00:00:00', 40),
+(3, 3, '2021-11-15 00:00:00', 15);
 
 -- --------------------------------------------------------
 
@@ -110,6 +168,16 @@ CREATE TABLE `missatge` (
   `vist` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `missatge`
+--
+
+INSERT INTO `missatge` (`idMissatge`, `nomUsuari`, `video`, `missatge`, `vist`) VALUES
+('1', 'Alberto', 'https://www.youtube.com/watch?v=KHkCxmGOi4c', 'Se ha añadido este video', 1),
+('2', 'Alberto', 'https://www.youtube.com/watch?v=e-pb72a5l80', 'Se ha añadido este video', 0),
+('3', 'Carlos', 'https://www.youtube.com/watch?v=zAcK0r7ma1A', 'Se ha añadido este video', 1),
+('4', 'Antoine', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'Se ha añadido este video', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -121,6 +189,17 @@ CREATE TABLE `recomanat` (
   `video` char(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `recomanat`
+--
+
+INSERT INTO `recomanat` (`tipusUsuari`, `video`) VALUES
+('9-18', 'https://www.youtube.com/watch?v=e-pb72a5l80'),
+('9-18', 'https://www.youtube.com/watch?v=KHkCxmGOi4c'),
+('<9', 'https://www.youtube.com/watch?v=2MIyBOz9KMw'),
+('<9', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'),
+('>18', 'https://www.youtube.com/watch?v=zAcK0r7ma1A');
+
 -- --------------------------------------------------------
 
 --
@@ -131,6 +210,14 @@ CREATE TABLE `tipus_contracte` (
   `tipusContracte` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tipus_contracte`
+--
+
+INSERT INTO `tipus_contracte` (`tipusContracte`) VALUES
+('mensual'),
+('trimestral');
+
 -- --------------------------------------------------------
 
 --
@@ -140,6 +227,15 @@ CREATE TABLE `tipus_contracte` (
 CREATE TABLE `tipus_usuari` (
   `tipusUsuari` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipus_usuari`
+--
+
+INSERT INTO `tipus_usuari` (`tipusUsuari`) VALUES
+('9-18'),
+('<9'),
+('>18');
 
 -- --------------------------------------------------------
 
@@ -154,6 +250,18 @@ CREATE TABLE `usuari` (
   `nomiLlinatges` char(50) NOT NULL,
   `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuari`
+--
+
+INSERT INTO `usuari` (`nomUsuari`, `tipusUsuari`, `contrasenya`, `nomiLlinatges`, `admin`) VALUES
+('Alberto', '>18', 'alberto1', 'Cugat Martin', 0),
+('Alejandro', '9-18', 'alejandro1', 'Medina Perello', 1),
+('Antoine', '<9', 'antoine1', 'Griezmann', 0),
+('Carlos', '<9', 'carlos1', 'Ecker Oliver', 0),
+('Jaume', '>18', 'jaume1', 'Julia Vallespir', 1),
+('Pau', '>18', 'Pau1', 'Capella Ballester', 0);
 
 --
 -- Índices para tablas volcadas
