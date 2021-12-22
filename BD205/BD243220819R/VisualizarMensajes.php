@@ -40,7 +40,7 @@ if (!isset($_SESSION['user'])){
     return 'https://www.youtube.com/embed/' . $youtube_id ;
     }
     ?>
-<center><H3>Tabla de facturas</H3></center>
+<center><H3>Tabla de mensajes</H3></center>
 <br>
 <br>
     <table class="center">
